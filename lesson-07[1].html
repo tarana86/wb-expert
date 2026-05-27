@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Урок 02: SEO-оптимизация карточек | WB Expert</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+--primary: #7B61FF; --secondary: #00D4AA; --accent: #FF6B6B;
+--bg: #0F0F1A; --surface: #1A1A2E; --surface-light: #252542;
+--text: #FFFFFF; --text-muted: #A0A0B8; --border: rgba(255,255,255,0.08);
+--gradient: linear-gradient(135deg, #7B61FF 0%, #00D4AA 100%);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+.container{max-width:800px;margin:0 auto;padding:40px 20px}
+.back{display:inline-flex;align-items:center;gap:8px;color:var(--primary);text-decoration:none;margin-bottom:30px;font-weight:500}
+.back:hover{color:var(--text)}
+.lesson-header{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:30px;margin-bottom:30px}
+.lesson-num{display:inline-block;background:var(--gradient);color:white;padding:6px 16px;border-radius:100px;font-weight:700;font-size:0.9rem;margin-bottom:15px}
+h1{font-size:1.8rem;font-weight:800;margin-bottom:10px}
+.meta{color:var(--text-muted);font-size:0.9rem;margin-bottom:20px}
+.duration{display:inline-flex;align-items:center;gap:6px;background:rgba(0,212,170,0.1);color:var(--secondary);padding:6px 14px;border-radius:8px;font-size:0.85rem;font-weight:600}
+.content-block{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:25px;margin-bottom:20px}
+.content-block h2{font-size:1.2rem;font-weight:700;margin-bottom:15px;color:var(--primary)}
+.content-block ul{list-style:none}
+.content-block li{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;color:var(--text-muted)}
+.content-block li::before{content:'▶';color:var(--secondary);font-size:0.8rem;margin-top:4px}
+.step-block{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:25px;margin-bottom:16px;display:flex;gap:16px;transition:all 0.3s}
+.step-block:hover{border-color:rgba(123,97,255,0.3);transform:translateX(5px)}
+.step-num{width:40px;height:40px;background:var(--gradient);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;flex-shrink:0}
+.step-content h3{font-size:1.1rem;font-weight:700;margin-bottom:10px;color:var(--text)}
+.step-content p{color:var(--text-muted);font-size:0.95rem;line-height:1.7}
+.step-content p strong{color:var(--text)}
+.locked-notice{background:rgba(255,107,107,0.1);border:1px solid rgba(255,107,107,0.3);border-radius:12px;padding:20px;text-align:center;margin-top:30px}
+.locked-notice .icon{font-size:2rem;margin-bottom:10px}
+.locked-notice h3{font-size:1.1rem;margin-bottom:8px}
+.locked-notice p{color:var(--text-muted);font-size:0.9rem;margin-bottom:15px}
+.btn-buy{display:inline-block;background:var(--gradient);color:white;padding:12px 32px;border-radius:12px;text-decoration:none;font-weight:600;font-size:1rem}
+.btn-buy:hover{transform:translateY(-2px)}
+.owner-unlock{background:rgba(123,97,255,0.1);border:1px solid rgba(123,97,255,0.3);border-radius:12px;padding:20px;text-align:center;margin:30px 0}
+.owner-unlock .icon{font-size:2rem;margin-bottom:10px}
+.owner-unlock h3{font-size:1.1rem;margin-bottom:8px}
+.owner-unlock p{color:var(--text-muted);font-size:0.9rem;margin-bottom:15px}
+.owner-unlock input{background:var(--surface-light);border:1px solid var(--border);color:var(--text);padding:10px 16px;border-radius:8px;font-size:1rem;width:250px;margin-right:10px}
+.owner-unlock button{background:var(--gradient);color:white;padding:10px 24px;border-radius:8px;border:none;font-weight:600;font-size:1rem;cursor:pointer}
+.preview-notice{background:rgba(0,212,170,0.1);border:1px solid rgba(0,212,170,0.3);border-radius:12px;padding:16px;text-align:center;margin-bottom:20px}
+.preview-notice p{color:var(--secondary);font-size:0.9rem;font-weight:600}
+</style>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back">← Назад к курсу</a>
+<div class="lesson-header">
+<div class="lesson-num">УРОК 02</div>
+<h1>SEO-оптимизация карточек</h1>
+<div class="meta">Курс: "Продвинутый селлер" • Для новичков</div>
+<div class="duration">⏱ 35 мин • Пошаговая инструкция</div>
+</div>
+<div class="preview-notice"><p>👁 Это бесплатный превью урока. Полный доступ ко всем шагам — после оплаты курса.</p></div>
+<div class="content-block">
+<h2>📋 О чём этот урок:</h2>
+<ul>
+<li>Шаг 1: Как работает поиск на Wildberries</li>
+<li>Шаг 2: Подбор ключевых слов</li>
+<li>Шаг 3: Оптимизация названия</li>
+<li>Шаг 4: Описание и характеристики для SEO</li>
+<li>Шаг 5: Работа с отзывами для SEO</li>
+<li>Шаг 6: Отслеживание позиций</li>
+</ul>
+</div>
+
+        <div class="step-block owner-only" style="display:none;">
+            <div class="step-num">1</div>
+            <div class="step-content">
+                <h3>Шаг 1: Как работает поиск на Wildberries</h3>
+                <p>Алгоритм поиска WB состоит из 3 этапов:<br><br><strong>1. Индексация:</strong><br>• WB «читает» название, описание, характеристики<br>• Выделяет ключевые слова<br>• Сохраняет в индекс (базу данных)<br><br><strong>2. Ранжирование:</strong><br>• При поиске WB сопоставляет запрос с индексом<br>• Сортирует по релевантности (совпадению слов)<br>• Учитывает: продажи, рейтинг, отзывы, цену, наличие<br><br><strong>3. Персонализация:</strong><br>• Для каждого покупателя результаты разные<br>• Учитывается история покупок, просмотров, регион<br><br>Факторы ранжирования (по важности):<br>1. Точное совпадение слов в названии (40%)<br>2. Продажи и конверсия (30%)<br>3. Рейтинг и отзывы (15%)<br>4. Цена и наличие (10%)<br>5. Активность продавца (5%)<br><br>💡 Название — самое важное для SEO. Тратьте на него 50% времени оптимизации.</p>
+            </div>
+        </div>
+        <div class="step-block owner-only" style="display:none;">
+            <div class="step-num">2</div>
+            <div class="step-content">
+                <h3>Шаг 2: Подбор ключевых слов</h3>
+                <p>Где искать ключевые слова:<br><br><strong>1. Подсказки WB:</strong><br>• Начните вводить запрос в поиске WB<br>• WB покажет популярные дополнения<br>• Запишите все релевантные варианты<br><br><strong>2. Карточки конкурентов:</strong><br>• Откройте топ-10 по вашему запросу<br>• Посмотрите, какие слова в названии<br>• Обратите внимание на «Вопросы о товаре» — там спрашивают то, что ищут<br><br><strong>3. Сервисы аналитики:</strong><br>• MPStats.ru — платный, но очень точный<br>• SellerFox — бесплатный базовый функционал<br>• Wildbox — анализ конкурентов<br><br><strong>4. Категории и фильтры WB:</strong><br>• Посмотрите, по каким фильтрам ищут в вашей категории<br>• Это тоже ключевые слова (цвет, размер, материал)<br><br>💡 Соберите 20-30 ключевых слов, затем отберите 5-7 самых частотных для названия.</p>
+            </div>
+        </div>
+        <div class="step-block owner-only" style="display:none;">
+            <div class="step-num">3</div>
+            <div class="step-content">
+                <h3>Шаг 3: Оптимизация названия</h3>
+                <p>Структура SEO-названия:<br><br><strong>[Главное ключевое слово] + [Второе КС] + [Характеристика] + [Модификатор]</strong><br><br>Пример для кружки:<br>• Главное КС: «кружка»<br>• Второе КС: «керамическая»<br>• Характеристика: «350 мл»<br>• Модификатор: «с крышкой»<br><br>Результат:<br>✅ «Кружка керамическая 350 мл с крышкой для чая и кофе»<br><br>Что НЕ делать:<br>❌ «ЛУЧШАЯ КРУЖКА!!! ТОП ПРОДАЖ!!!» — WB фильтрует капс и восклицания<br>❌ «Кружка чашка пиала бокал стакан» — спам ключевыми словами, понижение<br>❌ Название длиннее 60 символов — обрезается в поиске<br><br>Правила:<br>• Главное КС ставьте в начало<br>• Не повторяйте одно слово 2+ раза<br>• Используйте синонимы («кружка», «чашка» — но не вместе в одном названии)<br>• Добавляйте размер/цвет — часто ищут с уточнением<br><br>💡 Проверьте название: введите его в поиск WB — ваш товар должен появиться в подсказках.</p>
+            </div>
+        </div>
+        <div class="step-block owner-only" style="display:none;">
+            <div class="step-num">4</div>
+            <div class="step-content">
+                <h3>Шаг 4: Описание и характеристики для SEO</h3>
+                <p>Описание тоже индексируется поиском:<br><br><strong>В начале описания (первые 2-3 предложения):</strong><br>• Обязательно используйте главное ключевое слово<br>• Добавьте 1-2 дополнительных<br>• Пишите для человека, а не для робота<br><br>Пример:<br>«Керамическая кружка объёмом 350 мл с удобной крышкой. Идеально подходит для чая, кофе и других горячих напитков. Двойные стенки сохраняют тепло до 2 часов.»<br><br><strong>Характеристики:</strong><br>• Заполняйте ВСЕ поля — каждое это потенциальный фильтр поиска<br>• В поле «Особенности» добавьте ключевые слова<br>• В «Состав/Материал» укажите точное название<br><br><strong>Теги (если есть в категории):</strong><br>• Добавьте 5-10 релевантных тегов<br>• Используйте синонимы и уточнения<br>• Не повторяйте слова из названия<br><br>💡 WB не публикует точные правила индексации описания, но тесты показывают: карточки с ключевыми словами в описании ранжируются выше.</p>
+            </div>
+        </div>
+        <div class="step-block owner-only" style="display:none;">
+            <div class="step-num">5</div>
+            <div class="step-content">
+                <h3>Шаг 5: Работа с отзывами для SEO</h3>
+                <p>Отзывы влияют на поиск:<br><br><strong>Почему это работает:</strong><br>• WB индексирует текст отзывов<br>• Если покупатель написал «отличная кружка для чая» — ваш товар начинает ранжироваться по «кружка для чая»<br>• Отзывы с фото/видео повышают «вес» карточки<br><br><strong>Как стимулировать нужные отзывы:</strong><br>• В посылке напишите: «Будем благодарны, если поделитесь впечатлениями»<br>• Не просите конкретные слова — это запрещено<br>• Отвечайте на отзывы — WB видит активность<br><br><strong>Работа с ключевыми словами в отзывах:</strong><br>• Если покупатель написал «хорошая чашка» — в ответе используйте «кружка»: «Рады, что кружка понравилась!»<br>• WB связывает ваш ответ с индексом карточки<br><br>💡 10 отзывов с разными формулировками = ваш товар найдут по 10+ разным запросам.</p>
+            </div>
+        </div>
+        <div class="step-block owner-only" style="display:none;">
+            <div class="step-num">6</div>
+            <div class="step-content">
+                <h3>Шаг 6: Отслеживание позиций</h3>
+                <p>Как проверять, на каком месте ваш товар:<br><br><strong>Ручной способ (бесплатно):</strong><br>• Введите ключевое слово в поиск WB<br>• Прокрутите и найдите свой товар<br>• Запишите позицию (1-я страница = позиции 1-100)<br>• Повторяйте 1-2 раза в неделю<br><br><strong>Автоматический (платно):</strong><br>• MPStats — отслеживает позиции по 100+ запросам<br>• SellerFox — графики динамики<br>• Seopult — мониторинг конкурентов<br><br><strong>Что делать, если позиция падает:</strong><br>1. Проверьте, не снизилась ли цена конкурентов<br>2. Обновите фото (добавьте сезонные)<br>3. Попросите новые отзывы<br>4. Проверьте наличие товара на складе<br>5. Запустите рекламу по этому ключевому слову<br><br><strong>Что делать, если позиция растёт:</strong><br>• Не трогайте карточку! Любое изменение может сбить рост<br>• Только добавляйте отзывы и отвечайте на них<br>• Увеличьте рекламный бюджет на «горячие» слова<br><br>💡 Цель: попасть в топ-10 по 3-5 главным ключевым словам. Топ-10 = 70% всех кликов.</p>
+            </div>
+        </div>
+<div class="content-block owner-only" style="display:none;">
+<h2>📎 Материалы урока:</h2>
+<ul><li>Чек-лист SEO-оптимизации карточки</li><li>Шаблон подбора ключевых слов</li><li>Инструкция по анализу позиций в поиске</li><li>Примеры до/после SEO-оптимизации</li></ul>
+</div>
+<div class="content-block owner-only" style="display:none;">
+<h2>✅ Результат после урока:</h2>
+<ul><li>Карточка в топ-10 по ключевым запросам</li><li>Увеличение органического трафика на 50-200%</li><li>Понимание, как работает поиск WB</li></ul>
+</div>
+<div class="owner-unlock">
+<div class="icon">🔐</div>
+<h3>Доступ для владельца</h3>
+<p>Введите пароль для просмотра всех уроков</p>
+<input type="password" id="ownerPassword" placeholder="Пароль владельца">
+<button onclick="unlockContent()">Открыть доступ</button>
+</div>
+<div class="locked-notice">
+<div class="icon">🔒</div>
+<h3>Полный урок доступен после оплаты</h3>
+<p>Получите доступ ко всем 8 урокам, шаблонам и инструментам</p>
+<a href="index.html" class="btn-buy">Получить доступ за 2 999 ₽</a>
+</div>
+</div>
+<script>
+const OWNER_PASSWORD = "wbowner2026";
+const STORAGE_KEY = "wb_expert_access";
+function checkAccess(){
+var saved = localStorage.getItem(STORAGE_KEY);
+if(saved === "owner"){showFullContent();return true;}
+return false;
+}
+function showFullContent(){
+document.querySelectorAll('.owner-only').forEach(function(el){el.style.display='flex';});
+document.querySelectorAll('.locked-notice').forEach(function(el){el.style.display='none';});
+document.querySelectorAll('.preview-notice').forEach(function(el){el.style.display='none';});
+document.querySelectorAll('.owner-unlock').forEach(function(el){el.style.display='none';});
+}
+function unlockContent(){
+var input = document.getElementById('ownerPassword');
+if(input && input.value === OWNER_PASSWORD){
+localStorage.setItem(STORAGE_KEY, "owner");
+showFullContent();
+alert('✅ Доступ открыт! Вы вошли как владелец.');
+}else{
+alert('❌ Неверный пароль');
+}
+}
+document.addEventListener('DOMContentLoaded', function(){checkAccess();});
+</script>
+</body>
+</html>

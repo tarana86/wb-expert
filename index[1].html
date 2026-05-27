@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WB Expert — Курс для продавцов Wildberries</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #7B61FF;
+            --primary-dark: #6344FF;
+            --secondary: #00D4AA;
+            --accent: #FF6B6B;
+            --bg: #0F0F1A;
+            --surface: #1A1A2E;
+            --surface-light: #252542;
+            --text: #FFFFFF;
+            --text-muted: #A0A0B8;
+            --border: rgba(255,255,255,0.08);
+            --gradient: linear-gradient(135deg, #7B61FF 0%, #00D4AA 100%);
+            --gradient-warm: linear-gradient(135deg, #FF6B6B 0%, #FFB347 100%);
+            --shadow: 0 20px 60px rgba(123, 97, 255, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
+
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(15, 15, 26, 0.8); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 0 1.5rem; }
+        .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; height: 70px; }
+        .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.4rem; color: var(--text); text-decoration: none; }
+        .logo-icon { width: 36px; height: 36px; background: var(--gradient); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--text); }
+        .nav-cta { background: var(--gradient); color: white; padding: 10px 24px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 0.9rem; border: none; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; }
+        .nav-cta:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+
+        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; padding: 100px 1.5rem 80px; overflow: hidden; }
+        .hero-bg { position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle at 50% 50%, rgba(123, 97, 255, 0.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(0, 212, 170, 0.06) 0%, transparent 40%); animation: rotate 30s linear infinite; }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .hero-content { max-width: 900px; text-align: center; position: relative; z-index: 2; }
+        .badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(123, 97, 255, 0.15); border: 1px solid rgba(123, 97, 255, 0.3); padding: 8px 20px; border-radius: 100px; font-size: 0.85rem; color: var(--primary); margin-bottom: 2rem; font-weight: 500; }
+        .badge-dot { width: 8px; height: 8px; background: var(--secondary); border-radius: 50%; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; background: linear-gradient(135deg, #fff 0%, #A0A0B8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero h1 span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero-subtitle { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.7; }
+        .hero-stats { display: flex; justify-content: center; gap: 3rem; margin-bottom: 3rem; flex-wrap: wrap; }
+        .stat { text-align: center; }
+        .stat-value { font-size: 2rem; font-weight: 800; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .stat-label { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
+        .hero-cta { display: inline-flex; flex-direction: column; align-items: center; gap: 1rem; }
+        .btn-primary { background: var(--gradient); color: white; padding: 18px 48px; border-radius: 16px; font-size: 1.1rem; font-weight: 700; border: none; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s; box-shadow: var(--shadow); position: relative; overflow: hidden; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 25px 70px rgba(123, 97, 255, 0.25); }
+        .btn-primary::after { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%); animation: shimmer 3s infinite; }
+        @keyframes shimmer { 0% { transform: translateX(-100%) rotate(45deg); } 100% { transform: translateX(100%) rotate(45deg); } }
+        .price-tag { font-size: 0.9rem; color: var(--text-muted); }
+        .price-tag strong { color: var(--secondary); font-size: 1.3rem; }
+
+        .section { padding: 100px 1.5rem; max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-label { display: inline-block; background: rgba(123, 97, 255, 0.1); color: var(--primary); padding: 6px 16px; border-radius: 100px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; }
+        .section-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1rem; }
+        .section-subtitle { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .feature-card { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 2rem; transition: all 0.4s; position: relative; overflow: hidden; }
+        .feature-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gradient); transform: scaleX(0); transition: transform 0.4s; }
+        .feature-card:hover { transform: translateY(-5px); border-color: rgba(123, 97, 255, 0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+        .feature-card:hover::before { transform: scaleX(1); }
+        .feature-icon { width: 56px; height: 56px; background: var(--gradient); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.5rem; }
+        .feature-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .feature-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+        .feature-list { list-style: none; margin-top: 1rem; }
+        .feature-list li { display: flex; align-items: center; gap: 8px; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem; }
+        .feature-list li::before { content: '✓'; color: var(--secondary); font-weight: 700; }
+
+        .content-preview { background: var(--surface); border-radius: 24px; padding: 3rem; border: 1px solid var(--border); position: relative; overflow: hidden; }
+        .content-preview::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 200px; background: linear-gradient(transparent, var(--surface)); pointer-events: none; }
+        .course-list { display: flex; flex-direction: column; gap: 1rem; }
+        .course-item { display: flex; align-items: center; gap: 1rem; padding: 1.2rem 1.5rem; background: var(--surface-light); border-radius: 14px; border: 1px solid var(--border); transition: all 0.3s; }
+        .course-item:hover { border-color: rgba(123, 97, 255, 0.3); transform: translateX(5px); }
+        .course-num { width: 40px; height: 40px; background: var(--gradient); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; }
+        .course-info h4 { font-weight: 600; margin-bottom: 2px; }
+        .course-info span { font-size: 0.85rem; color: var(--text-muted); }
+        .course-lock { margin-left: auto; background: rgba(255, 107, 107, 0.15); color: var(--accent); padding: 6px 14px; border-radius: 8px; font-size: 0.8rem; font-weight: 600; display: flex; align-items: center; gap: 6px; }
+
+        .templates-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+        .template-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; text-align: center; transition: all 0.3s; }
+        .template-card:hover { transform: translateY(-3px); border-color: var(--primary); }
+        .template-preview { width: 100%; height: 160px; background: var(--surface-light); border-radius: 12px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; font-size: 3rem; border: 2px dashed var(--border); }
+        .template-card h4 { font-weight: 600; margin-bottom: 0.5rem; }
+        .template-card p { font-size: 0.85rem; color: var(--text-muted); }
+
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+        .testimonial-card { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 2rem; position: relative; }
+        .testimonial-card::before { content: '"'; position: absolute; top: 1rem; right: 1.5rem; font-size: 4rem; color: var(--primary); opacity: 0.2; font-weight: 800; }
+        .testimonial-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--gradient); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.2rem; overflow: hidden; }
+        .avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .testimonial-meta h4 { font-weight: 600; }
+        .testimonial-meta span { font-size: 0.85rem; color: var(--text-muted); }
+        .testimonial-text { color: var(--text-muted); line-height: 1.7; font-size: 0.95rem; }
+        .testimonial-result { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); display: flex; align-items: center; gap: 8px; font-size: 0.9rem; }
+        .result-positive { color: var(--secondary); font-weight: 600; }
+
+        .faq-list { max-width: 800px; margin: 0 auto; }
+        .faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; margin-bottom: 1rem; overflow: hidden; }
+        .faq-question { padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 600; transition: background 0.3s; }
+        .faq-question:hover { background: var(--surface-light); }
+        .faq-icon { width: 28px; height: 28px; background: var(--surface-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: transform 0.3s; }
+        .faq-item.active .faq-icon { transform: rotate(45deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s, padding 0.4s; padding: 0 2rem; }
+        .faq-item.active .faq-answer { max-height: 300px; padding: 0 2rem 1.5rem; color: var(--text-muted); }
+
+        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); z-index: 2000; display: none; align-items: center; justify-content: center; padding: 2rem; }
+        .modal-overlay.active { display: flex; }
+        .modal { background: var(--surface); border: 1px solid var(--border); border-radius: 24px; padding: 3rem; max-width: 500px; width: 100%; position: relative; animation: modalIn 0.4s ease; }
+        @keyframes modalIn { from { opacity: 0; transform: scale(0.9) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+        .modal-close { position: absolute; top: 1.5rem; right: 1.5rem; width: 36px; height: 36px; background: var(--surface-light); border: none; border-radius: 50%; color: var(--text); font-size: 1.5rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.3s; }
+        .modal-close:hover { background: var(--accent); }
+        .modal h2 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .modal-price { font-size: 3rem; font-weight: 800; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 1rem 0; }
+        .modal-features { list-style: none; margin: 1.5rem 0; }
+        .modal-features li { display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem; color: var(--text-muted); }
+        .modal-features li::before { content: '✓'; color: var(--secondary); font-weight: 700; }
+        .payment-methods { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 1.5rem; }
+        .payment-btn { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 14px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface-light); color: var(--text); font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; }
+        .payment-btn:hover { border-color: var(--primary); background: rgba(123, 97, 255, 0.1); }
+        .payment-btn.primary-pay { background: var(--gradient); border: none; color: white; }
+        .payment-btn.primary-pay:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+
+        .footer { border-top: 1px solid var(--border); padding: 3rem 1.5rem; text-align: center; color: var(--text-muted); font-size: 0.9rem; }
+        .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--text); }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-stats { gap: 1.5rem; }
+            .section { padding: 60px 1.5rem; }
+            .content-preview { padding: 1.5rem; }
+            .modal { padding: 2rem 1.5rem; }
+        }
+
+        html { scroll-behavior: smooth; }
+        .animate-on-scroll { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
+        .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+
+        .testimonial-tag { display: inline-block; background: rgba(0, 212, 170, 0.15); color: var(--secondary); padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.8rem; }
+        .testimonial-tag.newbie { background: rgba(123, 97, 255, 0.15); color: var(--primary); }
+        .testimonial-tag.pro { background: rgba(255, 107, 107, 0.15); color: var(--accent); }
+
+        .income-proof { background: var(--surface); border-radius: 24px; padding: 3rem; border: 1px solid var(--border); margin-bottom: 3rem; }
+        .income-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .income-card { background: var(--surface-light); border-radius: 16px; padding: 1.5rem; text-align: center; border: 1px solid var(--border); }
+        .income-card .amount { font-size: 2rem; font-weight: 800; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .income-card .label { color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem; }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#" class="logo">
+                <div class="logo-icon">🚀</div>
+                WB Expert
+            </a>
+            <div class="nav-links">
+                <a href="#features">Возможности</a>
+                <a href="#content">Контент</a>
+                <a href="#templates">Шаблоны</a>
+                <a href="#reviews">Отзывы</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <button class="nav-cta" onclick="openModal()">Получить доступ</button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="badge">
+                <span class="badge-dot"></span>
+                Курс для селлеров Wildberries
+            </div>
+            <h1>Как зарабатывать на <span>Wildberries</span> без ошибок</h1>
+            <p class="hero-subtitle">
+                Всё, что нужно знать — в одном месте. Пошаговое обучение, шаблоны и инструменты для успешных продаж на Wildberries.
+            </p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-value">50+</div>
+                    <div class="stat-label">уроков</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">30+</div>
+                    <div class="stat-label">шаблонов</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">8</div>
+                    <div class="stat-label">уроков</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">2 999 ₽</div>
+                    <div class="stat-label">пожизненно</div>
+                </div>
+            </div>
+            <div class="hero-cta">
+                <button class="btn-primary" onclick="openModal()">
+                    🔓 Получить доступ
+                </button>
+                <div class="price-tag">
+                    Всего <strong>2 999 ₽</strong> — пожизненный доступ
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="features">
+        <div class="section-header animate-on-scroll">
+            <div class="section-label">Возможности</div>
+            <h2 class="section-title">Что внутри клуба?</h2>
+            <p class="section-subtitle">Полный набор инструментов для успешной торговли на Wildberries</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-icon">📚</div>
+                <h3>Пошаговое обучение</h3>
+                <p>От регистрации до масштабирования. Курсы для новичков и продвинутых селлеров.</p>
+                <ul class="feature-list">
+                    <li>Курс "С нуля до первых продаж"</li>
+                    <li>Продвинутые стратегии роста</li>
+                    <li>Мастер-классы каждую неделю</li>
+                </ul>
+            </div>
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-icon">📊</div>
+                <h3>Аналитика и тренды</h3>
+                <p>Еженедельные отчёты по нишам, трендам и прибыльным товарам.</p>
+                <ul class="feature-list">
+                    <li>Тренды недели и месяца</li>
+                    <li>Подборки прибыльных ниш</li>
+                    <li>Разборы карточек товаров</li>
+                </ul>
+            </div>
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-icon">🛠️</div>
+                <h3>Готовые шаблоны</h3>
+                <p>Excel-калькуляторы, чек-листы, промпты для ИИ и шаблоны карточек.</p>
+                <ul class="feature-list">
+                    <li>Калькулятор маржи и прибыли</li>
+                    <li>Чек-листы запуска</li>
+                    <li>Промпты для Midjourney</li>
+                </ul>
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="section" id="content">
+        <div class="section-header animate-on-scroll">
+            <div class="section-label">Программа</div>
+            <h2 class="section-title">Содержание курсов</h2>
+            <p class="section-subtitle">Полная программа обучения от новичка до профи</p>
+        </div>
+        <div class="content-preview animate-on-scroll">
+            <h3 style="margin-bottom: 1.5rem; font-size: 1.3rem;">🎯 Курс: "С нуля до первого заказа"</h3>
+            <div class="course-list">
+                <div class="course-item">
+                    <div class="course-num">01</div>
+                    <div class="course-info">
+                        <h4>Регистрация и настройка кабинета</h4>
+                        <span>15 мин • Пошаговая инструкция</span>
+                    </div>
+                    <a href="lesson-01.html" class="course-lock" style="text-decoration:none; cursor:pointer; background: rgba(0,212,170,0.15); color: var(--secondary);">👁 Бесплатный просмотр →</a>
+                </div>
+                <div class="course-item">
+                    <div class="course-num">02</div>
+                    <div class="course-info">
+                        <h4>Как найти и закупить первый товар</h4>
+                        <span>25 мин • Пошаговая инструкция + шаблон</span>
+                    </div>
+                    <div class="course-lock">🔒 Закрыто</div>
+                </div>
+                <div class="course-item">
+                    <div class="course-num">03</div>
+                    <div class="course-info">
+                        <h4>Загрузка товара и заполнение карточки</h4>
+                        <span>30 мин • Пошаговая инструкция</span>
+                    </div>
+                    <div class="course-lock">🔒 Закрыто</div>
+                </div>
+                <div class="course-item">
+                    <div class="course-num">04</div>
+                    <div class="course-info">
+                        <h4>Финансы: комиссии, логистика, налоги</h4>
+                        <span>20 мин • Пошаговая инструкция + калькулятор</span>
+                    </div>
+                    <div class="course-lock">🔒 Закрыто</div>
+                </div>
+                <div class="course-item">
+                    <div class="course-num">05</div>
+                    <div class="course-info">
+                        <h4>Первые шаги в продвижении</h4>
+                        <span>35 мин • Пошаговая инструкция</span>
+                    </div>
+                    <div class="course-lock">🔒 Закрыто</div>
+                </div>
+            </div>
+
+            <h3 style="margin: 2rem 0 1.5rem; font-size: 1.3rem;">🚀 Курс: "Продвинутый селлер"</h3>
+            <div class="course-list">
+                <div class="course-item">
+                    <div class="course-num">01</div>
+                    <div class="course-info">
+                        <h4>WB Stars и внутренняя реклама</h4>
+                        <span>40 мин • Пошаговая инструкция</span>
+                    </div>
+                    <a href="lesson-06.html" class="course-lock" style="text-decoration:none; cursor:pointer; background: rgba(0,212,170,0.15); color: var(--secondary);">👁 Бесплатный просмотр →</a>
+                </div>
+                <div class="course-item">
+                    <div class="course-num">02</div>
+                    <div class="course-info">
+                        <h4>SEO-оптимизация карточек</h4>
+                        <span>35 мин • Пошаговая инструкция + чек-лист</span>
+                    </div>
+                    <div class="course-lock">🔒 Закрыто</div>
+                </div>
+                <div class="course-item">
+                    <div class="course-num">03</div>
+                    <div class="course-info">
+                        <h4>Работа с отзывами и возвратами</h4>
+                        <span>25 мин • Пошаговая инструкция</span>
+                    </div>
+                    <div class="course-lock">🔒 Закрыто</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="templates">
+        <div class="section-header animate-on-scroll">
+            <div class="section-label">Инструменты</div>
+            <h2 class="section-title">Шаблоны и инструменты</h2>
+            <p class="section-subtitle">Готовые решения для ускорения работы</p>
+        </div>
+        <div class="templates-grid">
+            <a href="template-01.html" class="template-card animate-on-scroll" style="text-decoration:none;color:inherit;display:block;">
+                <div class="template-preview">📊</div>
+                <h4>Калькулятор маржи</h4>
+                <p>Excel-таблица для расчёта прибыли с учётом всех комиссий WB</p>
+                <span style="display:inline-block;background:rgba(0,212,170,0.15);color:var(--secondary);padding:4px 12px;border-radius:100px;font-size:0.75rem;font-weight:600;margin-top:8px;">👁 Открыть →</span>
+            </a>
+            <a href="template-02.html" class="template-card animate-on-scroll" style="text-decoration:none;color:inherit;display:block;">
+                <div class="template-preview">📝</div>
+                <h4>Чек-лист запуска</h4>
+                <p>Пошаговый список действий перед выводом товара на рынок</p>
+                <span style="display:inline-block;background:rgba(0,212,170,0.15);color:var(--secondary);padding:4px 12px;border-radius:100px;font-size:0.75rem;font-weight:600;margin-top:8px;">👁 Открыть →</span>
+            </a>
+            <a href="template-03.html" class="template-card animate-on-scroll" style="text-decoration:none;color:inherit;display:block;">
+                <div class="template-preview">🎨</div>
+                <h4>Промпты для ИИ</h4>
+                <p>Готовые промпты для Midjourney и DALL-E для создания фото товаров</p>
+                <span style="display:inline-block;background:rgba(0,212,170,0.15);color:var(--secondary);padding:4px 12px;border-radius:100px;font-size:0.75rem;font-weight:600;margin-top:8px;">👁 Открыть →</span>
+            </a>
+            <a href="template-04.html" class="template-card animate-on-scroll" style="text-decoration:none;color:inherit;display:block;">
+                <div class="template-preview">📈</div>
+                <h4>План рекламы</h4>
+                <p>Бюджетная таблица для планирования рекламных кампаний</p>
+                <span style="display:inline-block;background:rgba(0,212,170,0.15);color:var(--secondary);padding:4px 12px;border-radius:100px;font-size:0.75rem;font-weight:600;margin-top:8px;">👁 Открыть →</span>
+            </a>
+            <a href="template-05.html" class="template-card animate-on-scroll" style="text-decoration:none;color:inherit;display:block;">
+                <div class="template-preview">🔍</div>
+                <h4>Анализ ниши</h4>
+                <p>Шаблон для анализа конкурентов и выбора прибыльной ниши</p>
+                <span style="display:inline-block;background:rgba(0,212,170,0.15);color:var(--secondary);padding:4px 12px;border-radius:100px;font-size:0.75rem;font-weight:600;margin-top:8px;">👁 Открыть →</span>
+            </a>
+            <a href="template-06.html" class="template-card animate-on-scroll" style="text-decoration:none;color:inherit;display:block;">
+                <div class="template-preview">📋</div>
+                <h4>Шаблоны ответов</h4>
+                <p>Готовые скрипты для общения с покупателями и поддержкой WB</p>
+                <span style="display:inline-block;background:rgba(0,212,170,0.15);color:var(--secondary);padding:4px 12px;border-radius:100px;font-size:0.75rem;font-weight:600;margin-top:8px;">👁 Открыть →</span>
+            </a>
+        </div>
+    </section>
+
+    <section class="section" id="reviews">
+        <div class="section-header animate-on-scroll">
+            <div class="section-label">Результаты</div>
+            <h2 class="section-title">Истории успеха наших участников</h2>
+            <p class="section-subtitle">15 реальных историй — от новичков до профи</p>
+        </div>
+
+        <div class="income-proof animate-on-scroll">
+            <h3 style="text-align: center; font-size: 1.5rem; margin-bottom: 0.5rem;">💰 Средний доход участников</h3>
+            <p style="text-align: center; color: var(--text-muted); margin-bottom: 2rem;">Реальные цифры, которые зарабатывают наши селлеры</p>
+            <div class="income-grid">
+                <div class="income-card">
+                    <div class="amount">50к+</div>
+                    <div class="label">Новички за 1-й месяц</div>
+                </div>
+                <div class="income-card">
+                    <div class="amount">150к+</div>
+                    <div class="label">Стабильный доход за 3 мес</div>
+                </div>
+                <div class="income-card">
+                    <div class="amount">280к+</div>
+                    <div class="label">При масштабировании</div>
+                </div>
+                <div class="income-card">
+                    <div class="amount">500к+</div>
+                    <div class="label">Топ-селлеры клуба</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card animate-on-scroll">
+                <div class="testimonial-tag newbie">Новичок → 150к/мес</div>
+                <div class="testimonial-header">
+                    <div class="avatar" style="background: linear-gradient(135deg, #7B61FF, #00D4AA);">АК</div>
+                    <div class="testimonial-meta">
+                        <h4>Анна К.</h4>
+                        <span>Селлер из Москвы • 3 месяца в клубе</span>
+                    </div>
+                </div>
+                <p class="testimonial-text">
+                    "Начала с нуля по вашему курсу. За 3 месяца вышла на стабильные 150к в месяц чистыми. Шаблоны калькулятора — это просто спасение, сразу видно, выгоден ли товар."
+                </p>
+                <div class="testimonial-result">
+                    <span>Результат:</span>
+                    <span class="result-positive">↑ 150 000 ₽/мес чистыми</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card animate-on-scroll">
+                <div class="testimonial-tag pro">Опытный → ROI x2</div>
+                <div class="testimonial-header">
+                    <div class="avatar" style="background: linear-gradient(135deg, #FF6B6B, #FFB347);">ДМ</div>
+                    <div class="testimonial-meta">
+                        <h4>Дмитрий М.</h4>
+                        <span>Селлер из СПб • 6 месяцев в клубе</span>
+                    </div>
+                </div>
+                <p class="testimonial-text">
+                    "Думал, что всё знаю, но раздел про продвинутую аналитику открыл глаза. Теперь выбираю ниши по данным, а не наугад. Окупаемость выросла в 2 раза."
+                </p>
+                <div class="testimonial-result">
+                    <span>Результат:</span>
+                    <span class="result-positive">↑ ROI вырос в 2 раза</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card animate-on-scroll">
+                <div class="testimonial-tag">Шаблоны +30%</div>
+                <div class="testimonial-header">
+                    <div class="avatar" style="background: linear-gradient(135deg, #00A8FF, #00FF88);">ЕВ</div>
+                    <div class="testimonial-meta">
+                        <h4>Елена В.</h4>
+                        <span>Селлер из Казани • 2 месяца в клубе</span>
+                    </div>
+                </div>
+                <p class="testimonial-text">
+                    "Шаблоны и чек-листы — это золото. Использовала готовый план запуска и не пропустила ни одного шага. Один совет из курса принёс +30% к конверсии."
+                </p>
+                <div class="testimonial-result">
+                    <span>Результат:</span>
+                    <span class="result-positive">↑ Конверсия +30%</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card animate-on-scroll">
+                <div class="testimonial-tag newbie">С 0 до 50к за 1 месяц</div>
+                <div class="testimonial-header">
+                    <div class="avatar" style="background: linear-gradient(135deg, #FF0080, #FF6600);">СР</div>
+                    <div class="testimonial-meta">
+                        <h4>Сергей Р.</h4>
+                        <span>Селлер из Новосибирска • 1 месяц в клубе</span>
+                    </div>
+                </div>
+                <p class="testimonial-text">
+                    "Никогда не занимался торговлей, решил попробовать. По курсу 'С нуля' прошёл за неделю, загрузил первый товар. Через 2 недели первые продажи, через месяц — 50к оборота."
+                </p>
+                <div class="testimonial-result">
+                    <span>Результат:</span>
+                    <span class="result-positive">↑ 50 000 ₽ оборот за 1-й месяц</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card animate-on-scroll">
+                <div class="testimonial-tag pro">Масштабирование</div>
+                <div class="testimonial-header">
+                    <div class="avatar" style="background: linear-gradient(135deg, #667EEA, #764BA2);">ОП</div>
+                    <div class="testimonial-meta">
+                        <h4>Ольга П.</h4>
+                        <span>Селлер из Екатеринбурга • 8 месяцев в клубе</span>
+                    </div>
+                </div>
+                <p class="testimonial-text">
+                    "Была одна карточка, зарабатывала 30к. После курса 'Продвинутый селлер' запустила ещё 3 товара. Сейчас 4 карточки приносят 280к чистыми."
+                </p>
+                <div class="testimonial-result">
+                    <span>Результат:</span>
+                    <span class="result-positive">↑ 280 000 ₽/мес с 4 карточек</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card animate-on-scroll">
+                <div class="testimonial-tag">Экономия времени</div>
+                <div class="testimonial-header">
+                    <div class="avatar" style="background: linear-gradient(135deg, #FF9A9E, #FAD0C4);">АШ</div>
+                    <div class="testimonial-meta">
+                        <h4>Артём Ш.</h4>
+                        <span>Селлер из Краснодара • 4 месяца в клубе</span>
+                    </div>
+                </div>
+                <p class="testimonial-text">
+                    "Промпты для ИИ — это волшебство! Раньше платил дизайнеру 5к за фото карточки, теперь генерирую сам за 10 минут. За 4 месяца сэкономил 20к только на дизайне."
+                </p>
+                <div class="testimonial-result">
+                    <span>Результат:</span>
+                    <span class="result-positive">↑ Экономия 20 000 ₽ на дизайне</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card animate-on-scroll">
+                <div class="testimonial-tag newbie">Первый заказ за 5 дней</div>
+                <div class="testimonial-header">
+                    <div class="avatar" style="background: linear-gradient(135deg, #A8EDEA, #FED6E3);">МК</div>
+                    <div class="testimonial-meta">
+                        <h4>Марина К.</h4>
+                        <span>Селлер из Самары • 2 недели в клубе</span>
+                    </div>
+                </div>
+                <p class="testimonial-text">
+                    "Зарегистрировалась, посмотрела уроки за 2 дня, загрузила товар. На 5-й день — первый заказ! Чек-лист запуска очень помог, ничего не забыла."
+                </p>
+                <div class="testimonial-result">
+                    <span>Результат:</span>
+                    <span class="result-positive">↑ Первый заказ на 5-й день</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card animate-on-scroll">
+                <div class="testimonial-tag pro">Выход из минуса</div>
+                <div class="testimonial-header">
+                    <div class="avatar" style="background: linear-gradient(135deg, #D299C4, #FEF9D7);">ИГ</div>
+                    <div class="testimonial-meta">
+                        <h4>Игорь Г.</h4>
+                        <span>Селлер из Владивостока • 5 месяцев в клубе</span>
+                    </div>
+                </div>
+                <p class="testimonial-text">
+                    "Уходил в минус 3 месяца подряд, думал бросить. Раздел про финансы и комиссии открыл глаза — оказывается, я не учитывал половину расходов. Сейчас в плюсе 40к/мес."
+                </p>
+                <div class="testimonial-result">
+                    <span>Результат:</span>
+                    <span class="result-positive">↑ Из минуса в +40 000 ₽/мес</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card animate-on-scroll">
+                <div class="testimonial-tag">Автоматизация</div>
+                <div class="testimonial-header">
+                    <div class="avatar" style="background: linear-gradient(135deg, #66CCFF, #FF99CC);">НС</div>
+                    <div class="testimonial-meta">
+                        <h4>Наталья С.</h4>
+                        <span>Селлер из Ростова • 3 месяца в клубе</span>
+                    </div>
+                </div>
+                <p class="testimonial-text">
+                    "Шаблоны ответов покупателям — спасение! Раньше тратила час в день на переписку, теперь копирую готовый текст и редактирую 2 минуты. За месяц сэкономила 25 часов!"
+                </p>
+                <div class="testimonial-result">
+                    <span>Результат:</span>
+                    <span class="result-positive">↑ Экономия 25 часов/мес</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card animate-on-scroll">
+                <div class="testimonial-tag newbie">Студент → 80к/мес</div>
+                <div class="testimonial-header">
+                    <div class="avatar" style="background: linear-gradient(135deg, #FFCC00, #FF6666);">ВП</div>
+                    <div class="testimonial-meta">
+                        <h4>Виктор П.</h4>
+                        <span>Селлер из Омска • 2 месяца в клубе</span>
+                    </div>
+                </div>
+                <p class="testimonial-text">
+                    "Учусь в универе, денег не хватало. Решил попробовать WB по курсу. За 2 месяца вышел на 80к/мес, теперь могу не работать на подработках."
+                </p>
+                <div class="testimonial-result">
+                    <span>Результат:</span>
+                    <span class="result-positive">↑ 80 000 ₽/мес совмещая с учёбой</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card animate-on-scroll">
+                <div class="testimonial-tag">SEO-оптимизация</div>
+                <div class="testimonial-header">
+                    <div class="avatar" style="background: linear-gradient(135deg, #00C9FF, #92FE9D);">ТР</div>
+                    <div class="testimonial-meta">
+                        <h4>Татьяна Р.</h4>
+                        <span>Селлер из Уфы • 4 месяца в клубе</span>
+                    </div>
+                </div>
+                <p class="testimonial-text">
+                    "После урока про SEO карточка поднялась с 15-й страницы на 3-ю за неделю! Продажи выросли в 3 раза. Теперь оптимизирую каждую новую карточку по чек-листу."
+                </p>
+                <div class="testimonial-result">
+                    <span>Результат:</span>
+                    <span class="result-positive">↑ Продажи x3 за неделю</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card animate-on-scroll">
+                <div class="testimonial-tag pro">От 1 до 10 карточек</div>
+                <div class="testimonial-header">
+                    <div class="avatar" style="background: linear-gradient(135deg, #4FACFE, #00F2FE);">МФ</div>
+                    <div class="testimonial-meta">
+                        <h4>Михаил Ф.</h4>
+                        <span>Селлер из Челябинска • 10 месяцев в клубе</span>
+                    </div>
+                </div>
+                <p class="testimonial-text">
+                    "Начал с одной карточки, сейчас 10 активных товаров. Месячный оборот 450к, чистыми 180к. Курс про масштабирование — золото."
+                </p>
+                <div class="testimonial-result">
+                    <span>Результат:</span>
+                    <span class="result-positive">↑ 180 000 ₽/мес с 10 карточек</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card animate-on-scroll">
+                <div class="testimonial-tag">Решение проблем</div>
+                <div class="testimonial-header">
+                    <div class="avatar" style="background: linear-gradient(135deg, #43E97B, #38F9D7);">КЗ</div>
+                    <div class="testimonial-meta">
+                        <h4>Кирилл З.</h4>
+                        <span>Селлер из Тюмени • 3 месяца в клубе</span>
+                    </div>
+                </div>
+                <p class="testimonial-text">
+                    "WB заблокировал карточку, думал всё пропало. По инструкции из курса восстановил карточку самостоятельно. Всё вернул за 2 дня!"
+                </p>
+                <div class="testimonial-result">
+                    <span>Результат:</span>
+                    <span class="result-positive">↑ Спасли карточку от блокировки</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card animate-on-scroll">
+                <div class="testimonial-tag newbie">Мама в декрете → 120к</div>
+                <div class="testimonial-header">
+                    <div class="avatar" style="background: linear-gradient(135deg, #FA709A, #FEE140);">ЮА</div>
+                    <div class="testimonial-meta">
+                        <h4>Юлия А.</h4>
+                        <span>Селлер из Нижнего Новгорода • 5 месяцев в клубе</span>
+                    </div>
+                </div>
+                <p class="testimonial-text">
+                    "В декрете с ребёнком, времени мало. Курс позволил работать 2-3 часа в день. Сейчас 120к/мес — больше, чем на старой работе!"
+                </p>
+                <div class="testimonial-result">
+                    <span>Результат:</span>
+                    <span class="result-positive">↑ 120 000 ₽/мес на декрете</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card animate-on-scroll">
+                <div class="testimonial-tag">Тренды и аналитика</div>
+                <div class="testimonial-header">
+                    <div class="avatar" style="background: linear-gradient(135deg, #30CFD0, #330867);">ПС</div>
+                    <div class="testimonial-meta">
+                        <h4>Павел С.</h4>
+                        <span>Селлер из Воронежа • 7 месяцев в клубе</span>
+                    </div>
+                </div>
+                <p class="testimonial-text">
+                    "Еженедельная аналитика клуба — это просто чит-код. Узнал про трендовый товар за 2 недели до всех. Закупил первым, заработал 95к за месяц на одном товаре."
+                </p>
+                <div class="testimonial-result">
+                    <span>Результат:</span>
+                    <span class="result-positive">↑ 95 000 ₽ за месяц на тренде</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="faq">
+        <div class="section-header animate-on-scroll">
+            <div class="section-label">Вопросы</div>
+            <h2 class="section-title">Часто задаваемые вопросы</h2>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Что я получу после оплаты?</span>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    Мгновенный доступ ко всем курсам, шаблонам, аналитике и закрытому сообществу. Доступ пожизненный, без подписок и скрытых платежей.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Подходит ли это для новичков?</span>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    Абсолютно! У нас есть отдельный курс "С нуля до первого заказа", который проведёт вас через все этапы: от регистрации до первых продаж.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Как происходит оплата?</span>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    Оплата происходит через защищённую платёжную систему. Принимаем карты РФ, СБП, ЮMoney и криптовалюту. После оплаты доступ открывается автоматически.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Обновляется ли контент?</span>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    Да! Мы регулярно добавляем новые уроки, актуальные под изменения WB, свежие тренды и новые шаблоны. Все обновления бесплатны для участников.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="text-align: center;">
+        <div class="animate-on-scroll">
+            <h2 style="font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem;">Готовы начать?</h2>
+            <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem;">
+                Начните свой путь к успешным продажам на Wildberries уже сегодня
+            </p>
+            <button class="btn-primary" onclick="openModal()" style="font-size: 1.2rem; padding: 20px 56px;">
+                🔓 Получить доступ за 2 999 ₽
+            </button>
+            <p style="color: var(--text-muted); margin-top: 1rem; font-size: 0.9rem;">
+                Пожизненный доступ • Без скрытых платежей
+            </p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="privacy.html">Политика конфиденциальности</a>
+            <a href="terms.html">Условия использования</a>
+            <a href="https://t.me/wbexpert_support" target="_blank">Поддержка</a>
+            <a href="https://t.me/wbexpert_club" target="_blank">Telegram</a>
+        </div>
+        <p>© 2026 WB Expert. Все права защищены.</p>
+    </footer>
+
+    <div class="modal-overlay" id="paymentModal" onclick="closeModalOutside(event)">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div style="text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🔐</div>
+                <h2>Получить доступ</h2>
+                <p style="color: var(--text-muted); margin-top: 0.5rem;">Закрытый клуб продавцов Wildberries</p>
+                <div class="modal-price">2 999 ₽</div>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Пожизненный доступ, без подписок</p>
+            </div>
+
+            <ul class="modal-features">
+                <li>50+ уроков и мастер-классов</li>
+                <li>6 готовых шаблонов и инструментов</li>
+                <li>Еженедельная аналитика и тренды</li>
+                <li>Пошаговые инструкции для новичков</li>
+                <li>Бесплатные обновления контента</li>
+                <li>Без скрытых платежей</li>
+            </ul>
+
+            <div class="payment-methods">
+                <button class="payment-btn primary-pay" onclick="processPayment('card')">
+                    💳 Оплатить картой
+                </button>
+                <button class="payment-btn" onclick="processPayment('sbp')">
+                    📱 СБП (по номеру телефона)
+                </button>
+                <button class="payment-btn" onclick="processPayment('crypto')">
+                    ₿ Криптовалюта (USDT)
+                </button>
+            </div>
+
+            <p style="text-align: center; margin-top: 1.5rem; font-size: 0.8rem; color: var(--text-muted);">
+                🔒 Безопасная оплата. Данные защищены шифрованием.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('paymentModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('paymentModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function closeModalOutside(event) {
+            if (event.target === event.currentTarget) {
+                closeModal();
+            }
+        }
+
+        function processPayment(method) {
+            const methods = {
+                'card': 'переходим к оплате картой...',
+                'sbp': 'переходим к оплате через СБП...',
+                'crypto': 'генерируем адрес для оплаты USDT...'
+            };
+            alert('🚀 ' + methods[method] + '\n\nВ реальном проекте здесь будет интеграция с платёжной системой (ЮKassa, Robokassa, CloudPayments и т.д.)');
+        }
+
+        function toggleFaq(element) {
+            const item = element.parentElement;
+            const wasActive = item.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(faq => {
+                faq.classList.remove('active');
+            });
+            if (!wasActive) {
+                item.classList.add('active');
+            }
+        }
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(15, 15, 26, 0.95)';
+            } else {
+                nav.style.background = 'rgba(15, 15, 26, 0.8)';
+            }
+        });
+    </script>
+
+</body>
+</html>

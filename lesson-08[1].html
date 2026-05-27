@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Урок 03: Работа с отзывами и возвратами | WB Expert</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+--primary: #7B61FF; --secondary: #00D4AA; --accent: #FF6B6B;
+--bg: #0F0F1A; --surface: #1A1A2E; --surface-light: #252542;
+--text: #FFFFFF; --text-muted: #A0A0B8; --border: rgba(255,255,255,0.08);
+--gradient: linear-gradient(135deg, #7B61FF 0%, #00D4AA 100%);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+.container{max-width:800px;margin:0 auto;padding:40px 20px}
+.back{display:inline-flex;align-items:center;gap:8px;color:var(--primary);text-decoration:none;margin-bottom:30px;font-weight:500}
+.back:hover{color:var(--text)}
+.lesson-header{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:30px;margin-bottom:30px}
+.lesson-num{display:inline-block;background:var(--gradient);color:white;padding:6px 16px;border-radius:100px;font-weight:700;font-size:0.9rem;margin-bottom:15px}
+h1{font-size:1.8rem;font-weight:800;margin-bottom:10px}
+.meta{color:var(--text-muted);font-size:0.9rem;margin-bottom:20px}
+.duration{display:inline-flex;align-items:center;gap:6px;background:rgba(0,212,170,0.1);color:var(--secondary);padding:6px 14px;border-radius:8px;font-size:0.85rem;font-weight:600}
+.content-block{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:25px;margin-bottom:20px}
+.content-block h2{font-size:1.2rem;font-weight:700;margin-bottom:15px;color:var(--primary)}
+.content-block ul{list-style:none}
+.content-block li{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;color:var(--text-muted)}
+.content-block li::before{content:'▶';color:var(--secondary);font-size:0.8rem;margin-top:4px}
+.step-block{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:25px;margin-bottom:16px;display:flex;gap:16px;transition:all 0.3s}
+.step-block:hover{border-color:rgba(123,97,255,0.3);transform:translateX(5px)}
+.step-num{width:40px;height:40px;background:var(--gradient);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;flex-shrink:0}
+.step-content h3{font-size:1.1rem;font-weight:700;margin-bottom:10px;color:var(--text)}
+.step-content p{color:var(--text-muted);font-size:0.95rem;line-height:1.7}
+.step-content p strong{color:var(--text)}
+.locked-notice{background:rgba(255,107,107,0.1);border:1px solid rgba(255,107,107,0.3);border-radius:12px;padding:20px;text-align:center;margin-top:30px}
+.locked-notice .icon{font-size:2rem;margin-bottom:10px}
+.locked-notice h3{font-size:1.1rem;margin-bottom:8px}
+.locked-notice p{color:var(--text-muted);font-size:0.9rem;margin-bottom:15px}
+.btn-buy{display:inline-block;background:var(--gradient);color:white;padding:12px 32px;border-radius:12px;text-decoration:none;font-weight:600;font-size:1rem}
+.btn-buy:hover{transform:translateY(-2px)}
+.owner-unlock{background:rgba(123,97,255,0.1);border:1px solid rgba(123,97,255,0.3);border-radius:12px;padding:20px;text-align:center;margin:30px 0}
+.owner-unlock .icon{font-size:2rem;margin-bottom:10px}
+.owner-unlock h3{font-size:1.1rem;margin-bottom:8px}
+.owner-unlock p{color:var(--text-muted);font-size:0.9rem;margin-bottom:15px}
+.owner-unlock input{background:var(--surface-light);border:1px solid var(--border);color:var(--text);padding:10px 16px;border-radius:8px;font-size:1rem;width:250px;margin-right:10px}
+.owner-unlock button{background:var(--gradient);color:white;padding:10px 24px;border-radius:8px;border:none;font-weight:600;font-size:1rem;cursor:pointer}
+.preview-notice{background:rgba(0,212,170,0.1);border:1px solid rgba(0,212,170,0.3);border-radius:12px;padding:16px;text-align:center;margin-bottom:20px}
+.preview-notice p{color:var(--secondary);font-size:0.9rem;font-weight:600}
+</style>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back">← Назад к курсу</a>
+<div class="lesson-header">
+<div class="lesson-num">УРОК 03</div>
+<h1>Работа с отзывами и возвратами</h1>
+<div class="meta">Курс: "Продвинутый селлер" • Для новичков</div>
+<div class="duration">⏱ 25 мин • Пошаговая инструкция</div>
+</div>
+<div class="preview-notice"><p>👁 Это бесплатный превью урока. Полный доступ ко всем шагам — после оплаты курса.</p></div>
+<div class="content-block">
+<h2>📋 О чём этот урок:</h2>
+<ul>
+<li>Шаг 1: Как получать больше положительных отзывов</li>
+<li>Шаг 2: Шаблоны ответов на отзывы</li>
+<li>Шаг 3: Почему происходят возвраты</li>
+<li>Шаг 4: Что делать при браке</li>
+<li>Шаг 5: Как отвечать, чтобы повысить конверсию</li>
+<li>Шаг 6: Как поддерживать рейтинг 4.5+</li>
+</ul>
+</div>
+
+        <div class="step-block owner-only" style="display:none;">
+            <div class="step-num">1</div>
+            <div class="step-content">
+                <h3>Шаг 1: Как получать больше положительных отзывов</h3>
+                <p>Стратегия сбора отзывов:<br><br><strong>Этап 1: До покупки</strong><br>• Опишите товар максимально точно — меньше разочарований<br>• Добавьте фото в разных ракурсах<br>• Укажите точные размеры (сравнение с известными предметами)<br><br><strong>Этап 2: В посылке</strong><br>• Вложите красивую открытку с благодарностью<br>• Напишите: «Будем признательны за ваше мнение»<br>• НЕ предлагайте деньги/скидки — это нарушение правил WB<br><br><strong>Этап 3: После получения</strong><br>• Через 3-5 дней после доставки напишите в личные сообщения WB<br>• Текст: «Здравствуйте! Надеемся, товар понравился. Если есть вопросы — всегда на связи!»<br>• Не давите, не требуйте — просто напомните о себе<br><br><strong>Этап 4: После отзыва</strong><br>• Отвечайте на КАЖДЫЙ отзыв в течение 24 часов<br>• На положительные — благодарите, на негативные — предлагайте решение<br><br>💡 Статистика: 30% покупателей оставляют отзыв, если их попросить вежливо. Без просьбы — только 5%.</p>
+            </div>
+        </div>
+        <div class="step-block owner-only" style="display:none;">
+            <div class="step-num">2</div>
+            <div class="step-content">
+                <h3>Шаг 2: Шаблоны ответов на отзывы</h3>
+                <p><strong>На положительный отзыв (5 звёзд):</strong><br>«[Имя], спасибо за такой тёплый отзыв! 🙏 Очень рады, что [название товара] оправдал ожидания. Будем ждать вас снова! Если понадобится помощь — всегда на связи.»<br><br><strong>На нейтральный (3-4 звезды):</strong><br>«[Имя], благодарим за обратную связь! Подскажите, пожалуйста, что можно улучшить? Мы работаем над качеством и хотим сделать лучше. Напишите нам в сообщения — найдём решение!»<br><br><strong>На негативный (1-2 звезды) — проблема с товаром:</strong><br>«[Имя], приносим извинения за неудобства! 😔 Это действительно недопустимо. Мы готовы [заменить товар / вернуть деньги / предоставить скидку 20% на следующий заказ]. Напишите нам в личные сообщения — решим вопрос сегодня!»<br><br><strong>На негативный — покупатель не разобрался:</strong><br>«[Имя], спасибо за отзыв! К сожалению, товар работает немного иначе, чем вы ожидали. [Объясните, как правильно использовать]. Если остались вопросы — напишите нам, с радостью поможем разобраться!»<br><br><strong>На негативный с фото брака:</strong><br>«[Имя], огромное спасибо, что сообщили! Мы немедленно свяжемся с производством и проверим партию. Пожалуйста, напишите нам в сообщения — заменим товар или вернём деньги. Ваш опыт поможет нам стать лучше.»<br><br>💡 Правило: отвечайте быстро, вежливо, предлагайте конкретное решение. Даже негативный отзыв с хорошим ответом работает на вас.</p>
+            </div>
+        </div>
+        <div class="step-block owner-only" style="display:none;">
+            <div class="step-num">3</div>
+            <div class="step-content">
+                <h3>Шаг 3: Почему происходят возвраты</h3>
+                <p>Основные причины возвратов на WB:<br><br><strong>1. Несоответствие описанию (40% возвратов):</strong><br>• Товар выглядит иначе, чем на фото<br>• Размер не подошёл (самая частая причина для одежды)<br>• Цвет отличается от фото<br><br><strong>Решение:</strong><br>• Добавьте фото в руке / на модели / с линейкой<br>• Укажите точные размеры в см<br>• Напишите: «Цвет может незначительно отличаться в зависимости от экрана»<br><br><strong>2. Брак или повреждение (25%):</strong><br>• Товар пришёл сломанным<br>• Повреждённая упаковка<br>• Неполная комплектация<br><br><strong>Решение:</strong><br>• Усильте упаковку (пузырчатая плёнка, картон)<br>• Проверяйте каждую единицу перед отправкой<br>• Делайте фото упакованного товара на случай спора<br><br><strong>3. Передумал / заказал по ошибке (20%):</strong><br>• WB разрешает возврат без объяснения причин<br><br><strong>Решение:</strong><br>• Минимизировать нельзя, но можно снизить влияние<br>• Быстро обрабатывайте возвраты — WB снижает рейтинг за долгие возвраты<br><br><strong>4. Долгая доставка (15%):</strong><br>• Покупатель успел купить в другом месте<br><br><strong>Решение:</strong><br>• Используйте FBO — доставка от WB быстрее<br>• Не обещайте сроки, которые не можете выполнить<br><br>💡 Нормальный процент возвратов: 3-7%. Если больше 10% — срочно ищите проблему.</p>
+            </div>
+        </div>
+        <div class="step-block owner-only" style="display:none;">
+            <div class="step-num">4</div>
+            <div class="step-content">
+                <h3>Шаг 4: Что делать при браке</h3>
+                <p>Алгоритм действий при браке:<br><br><strong>1. Получите возврат на склад WB:</strong><br>• WB пришлёт уведомление о возврате<br>• Товар приедет на ваш склад или останется на WB (FBO)<br><br><strong>2. Проверьте товар:</strong><br>• Сфотографируйте брак с нескольких ракурсов<br>• Сравните с фото до отправки (если делали)<br>• Определите: брак производства или повреждение при доставке?<br><br><strong>3. Если брак производства:</strong><br>• Свяжитесь с поставщиком<br>• Предоставьте фото и видео<br>• Потребуйте замену или возврат денег<br>• Проверьте всю партию — возможно, брак массовый<br><br><strong>4. Если повреждение при доставке:</strong><br>• Напишите в поддержку WB<br>• Предоставьте фото упаковки и товара<br>• Потребуйте компенсацию (WB иногда возмещает)<br><br><strong>5. Если покупатель повредил сам:</strong><br>• WB обычно не компенсирует<br>• Но можно написать в поддержку с аргументами<br>• В будущем улучшите инструкцию по использованию<br><br>⚠️ Важно: не отправляйте бракованный товар снова! WB штрафует за повторные возвраты по браку.</p>
+            </div>
+        </div>
+        <div class="step-block owner-only" style="display:none;">
+            <div class="step-num">5</div>
+            <div class="step-content">
+                <h3>Шаг 5: Как отвечать, чтобы повысить конверсию</h3>
+                <p>Ответы на отзывы видят ВСЕ потенциальные покупатели. Это — ваша витрина.<br><br><strong>Правила идеального ответа:</strong><br><br>1. <strong>Быстро</strong> — в течение 12 часов (идеально) или 24 часов (максимум)<br>2. <strong>Персонально</strong> — используйте имя покупателя<br>3. <strong>Конкретно</strong> — отвечайте на конкретную проблему, не шаблонно<br>4. <strong>Позитивно</strong> — даже на негатив не отвечайте агрессивно<br>5. <strong>С призывом к действию</strong> — «Напишите нам» вместо «Обращайтесь»<br><br><strong>Пример трансформации:</strong><br><br>❌ Плохо:<br>«Спасибо за отзыв. Обращайтесь.»<br><br>✅ Хорошо:<br>«Анна, спасибо, что поделились впечатлениями! ❤️ Рады, что кружка понравилась. Если захотите ещё — у нас есть новые цвета, пишите, пришлём фото!»<br><br>💡 Покупатели читают отзывы перед заказом. Хорошие ответы продавца повышают доверие на 25-40%.</p>
+            </div>
+        </div>
+        <div class="step-block owner-only" style="display:none;">
+            <div class="step-num">6</div>
+            <div class="step-content">
+                <h3>Шаг 6: Как поддерживать рейтинг 4.5+</h3>
+                <p>Рейтинг влияет на:<br>• Позицию в поиске (чем выше рейтинг — тем выше в топе)<br>• Доверие покупателей (меньше 4.0 = мало заказов)<br>• Доступ к рекламным инструментам WB<br><br><strong>Стратегия поддержания высокого рейтинга:</strong><br><br><strong>1. Профилактика негатива (70% усилий):</strong><br>• Точное описание товара<br>• Качественные фото<br>• Правильные размеры<br>• Хорошая упаковка<br>• Быстрая отправка<br><br><strong>2. Работа с негативом (20% усилий):</strong><br>• Отвечайте быстро и конструктивно<br>• Предлагайте замену/возврат<br>• Переводите в личные сообщения<br>• После решения попросите изменить отзыв (вежливо!)<br><br><strong>3. Сбор положительных (10% усилий):</strong><br>• Напоминайте довольным покупателям об отзыве<br>• Вкладывайте открытки с благодарностью<br>• Создавайте приятный опыт распаковки<br><br><strong>Что делать, если рейтинг упал:</strong><br>• Не паникуйте — 1-2 негативных отзыва не критичны<br>• Соберите 5-10 положительных — рейтинг восстановится<br>• Найдите и устраните причину негатива<br>• Если товар проблемный — замените поставщика<br><br>💡 Рейтинг 4.5+ = зелёная зона. 4.0-4.5 = жёлтая (можно работать). Ниже 4.0 = красная (срочно меняйте товар или поставщика).</p>
+            </div>
+        </div>
+<div class="content-block owner-only" style="display:none;">
+<h2>📎 Материалы урока:</h2>
+<ul><li>20+ готовых шаблонов ответов на отзывы</li><li>Инструкция по работе с возвратами</li><li>Таблица анализа причин возвратов</li><li>Чек-лист поддержания высокого рейтинга</li></ul>
+</div>
+<div class="content-block owner-only" style="display:none;">
+<h2>✅ Результат после урока:</h2>
+<ul><li>Рейтинг карточки 4.5+ звёзд</li><li>Снижение процента возвратов до минимума</li><li>Налаженная коммуникация с покупателями</li></ul>
+</div>
+<div class="owner-unlock">
+<div class="icon">🔐</div>
+<h3>Доступ для владельца</h3>
+<p>Введите пароль для просмотра всех уроков</p>
+<input type="password" id="ownerPassword" placeholder="Пароль владельца">
+<button onclick="unlockContent()">Открыть доступ</button>
+</div>
+<div class="locked-notice">
+<div class="icon">🔒</div>
+<h3>Полный урок доступен после оплаты</h3>
+<p>Получите доступ ко всем 8 урокам, шаблонам и инструментам</p>
+<a href="index.html" class="btn-buy">Получить доступ за 2 999 ₽</a>
+</div>
+</div>
+<script>
+const OWNER_PASSWORD = "wbowner2026";
+const STORAGE_KEY = "wb_expert_access";
+function checkAccess(){
+var saved = localStorage.getItem(STORAGE_KEY);
+if(saved === "owner"){showFullContent();return true;}
+return false;
+}
+function showFullContent(){
+document.querySelectorAll('.owner-only').forEach(function(el){el.style.display='flex';});
+document.querySelectorAll('.locked-notice').forEach(function(el){el.style.display='none';});
+document.querySelectorAll('.preview-notice').forEach(function(el){el.style.display='none';});
+document.querySelectorAll('.owner-unlock').forEach(function(el){el.style.display='none';});
+}
+function unlockContent(){
+var input = document.getElementById('ownerPassword');
+if(input && input.value === OWNER_PASSWORD){
+localStorage.setItem(STORAGE_KEY, "owner");
+showFullContent();
+alert('✅ Доступ открыт! Вы вошли как владелец.');
+}else{
+alert('❌ Неверный пароль');
+}
+}
+document.addEventListener('DOMContentLoaded', function(){checkAccess();});
+</script>
+</body>
+</html>

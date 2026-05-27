@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Чек-лист запуска | WB Expert</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#7B61FF;--secondary:#00D4AA;--accent:#FF6B6B;--bg:#0F0F1A;--surface:#1A1A2E;--surface-light:#252542;--text:#FFFFFF;--text-muted:#A0A0B8;--border:rgba(255,255,255,0.08);--gradient:linear-gradient(135deg,#7B61FF 0%,#00D4AA 100%)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+.container{max-width:800px;margin:0 auto;padding:40px 20px}
+.back{display:inline-flex;align-items:center;gap:8px;color:var(--primary);text-decoration:none;margin-bottom:30px;font-weight:500}
+.back:hover{color:var(--text)}
+.template-header{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:30px;margin-bottom:30px;text-align:center}
+.template-icon{font-size:4rem;margin-bottom:15px}
+h1{font-size:1.8rem;font-weight:800;margin-bottom:10px}
+.meta{color:var(--text-muted);font-size:0.9rem}
+.content-block{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:25px;margin-bottom:20px}
+.content-block h2{font-size:1.2rem;font-weight:700;margin-bottom:15px;color:var(--primary)}
+.content-block p{color:var(--text-muted);font-size:0.95rem;line-height:1.7;margin-bottom:12px}
+.content-block ul{list-style:none;margin-top:10px}
+.content-block li{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;color:var(--text-muted);font-size:0.95rem}
+.content-block li::before{content:'✓';color:var(--secondary);font-weight:700}
+.content-block strong{color:var(--text)}
+.code-block{background:var(--surface-light);border:1px solid var(--border);border-radius:10px;padding:16px;font-family:monospace;font-size:0.9rem;color:var(--text-muted);margin:12px 0;overflow-x:auto;white-space:pre-wrap}
+.table-block{width:100%;border-collapse:collapse;margin:12px 0}
+.table-block th{background:var(--gradient);color:white;padding:10px;text-align:left;font-size:0.85rem}
+.table-block td{padding:10px;border-bottom:1px solid var(--border);color:var(--text-muted);font-size:0.9rem}
+.table-block tr:hover td{background:var(--surface-light)}
+.locked-notice{background:rgba(255,107,107,0.1);border:1px solid rgba(255,107,107,0.3);border-radius:12px;padding:20px;text-align:center;margin-top:30px}
+.locked-notice .icon{font-size:2rem;margin-bottom:10px}
+.locked-notice h3{font-size:1.1rem;margin-bottom:8px}
+.locked-notice p{color:var(--text-muted);font-size:0.9rem;margin-bottom:15px}
+.btn-buy{display:inline-block;background:var(--gradient);color:white;padding:12px 32px;border-radius:12px;text-decoration:none;font-weight:600;font-size:1rem}
+.btn-buy:hover{transform:translateY(-2px)}
+.owner-unlock{background:rgba(123,97,255,0.1);border:1px solid rgba(123,97,255,0.3);border-radius:12px;padding:20px;text-align:center;margin:30px 0}
+.owner-unlock .icon{font-size:2rem;margin-bottom:10px}
+.owner-unlock h3{font-size:1.1rem;margin-bottom:8px}
+.owner-unlock p{color:var(--text-muted);font-size:0.9rem;margin-bottom:15px}
+.owner-unlock input{background:var(--surface-light);border:1px solid var(--border);color:var(--text);padding:10px 16px;border-radius:8px;font-size:1rem;width:250px;margin-right:10px}
+.owner-unlock button{background:var(--gradient);color:white;padding:10px 24px;border-radius:8px;border:none;font-weight:600;font-size:1rem;cursor:pointer}
+.preview-notice{background:rgba(0,212,170,0.1);border:1px solid rgba(0,212,170,0.3);border-radius:12px;padding:16px;text-align:center;margin-bottom:20px}
+.preview-notice p{color:var(--secondary);font-size:0.9rem;font-weight:600}
+</style>
+</head>
+<body>
+<div class="container">
+<a href="index.html#templates" class="back">← Назад к шаблонам</a>
+<div class="template-header">
+<div class="template-icon">📝</div>
+<h1>Чек-лист запуска</h1>
+<div class="meta">Шаблон и инструмент для селлеров Wildberries</div>
+</div>
+<div class="preview-notice"><p>👁 Предпросмотр шаблона. Полный доступ — после покупки курса.</p></div>
+<div class="content-block owner-only" style="display:none;">
+<h2>📝 Чек-лист запуска товара на Wildberries</h2>
+<p>Пройдите все пункты перед выводом товара на рынок. Ничего не упустите!</p>
+<h2 style="margin-top:20px;color:var(--primary)">✅ Этап 1: Подготовка (за 2 недели)</h2>
+<ul>
+<li>Выбрана ниша и товар (анализ конкурентов проведён)</li>
+<li>Найден поставщик, договорённость достигнута</li>
+<li>Закуплена тестовая партия (10-20 шт)</li>
+<li>Проверено качество каждой единицы</li>
+<li>Рассчитана маржа (минимум 30%)</li>
+</ul>
+<h2 style="margin-top:20px;color:var(--primary)">✅ Этап 2: Регистрация (за 1 неделю)</h2>
+<ul>
+<li>Кабинет WB зарегистрирован и подтверждён</li>
+<li>Выбран тип бизнеса (самозанятость/ИП/ООО)</li>
+<li>Подключён ЭДО (электронный документооборот)</li>
+<li>Указаны банковские реквизиты</li>
+<li>Выбран способ доставки (FBO или со своего склада)</li>
+</ul>
+<h2 style="margin-top:20px;color:var(--primary)">✅ Этап 3: Карточка товара (за 3 дня)</h2>
+<ul>
+<li>Создана карточка, выбрана правильная категория</li>
+<li>Название оптимизировано под SEO (до 60 символов)</li>
+<li>Загружено 7-9 фото (все ракурсы)</li>
+<li>Описание написано с ключевыми словами</li>
+<li>Все характеристики заполнены</li>
+<li>Цена рассчитана с учётом всех комиссий</li>
+</ul>
+<h2 style="margin-top:20px;color:var(--primary)">✅ Этап 4: Перед отправкой (за 1 день)</h2>
+<ul>
+<li>Товар упакован и промаркирован</li>
+<li>Этикетки WB распечатаны и приклеены</li>
+<li>Проверена комплектация</li>
+<li>Сделаны фото упакованного товара</li>
+<li>Организована доставка на склад WB</li>
+</ul>
+<h2 style="margin-top:20px;color:var(--primary)">✅ Этап 5: После запуска (первые 2 недели)</h2>
+<ul>
+<li>Получены первые 3-5 отзывов</li>
+<li>Запущена первая рекламная кампания</li>
+<li>Отвечаю на все вопросы покупателей</li>
+<li>Анализирую метрики каждые 3 дня</li>
+<li>Корректирую цену/описание при необходимости</li>
+</ul>
+<h2 style="margin-top:20px;color:var(--primary)">📥 Скачать PDF-чеклист</h2>
+<p>Распечатайте и отмечайте выполненные пункты.</p>
+<p style="margin-top:10px"><span style="display:inline-block;background:var(--gradient);color:white;padding:10px 24px;border-radius:8px;text-decoration:none;font-weight:600;">⬇ Скачать PDF-чеклист</span></p>
+</div>
+<div class="owner-unlock">
+<div class="icon">🔐</div>
+<h3>Доступ для владельца</h3>
+<p>Введите пароль для просмотра шаблонов</p>
+<input type="password" id="ownerPassword" placeholder="Пароль владельца">
+<button onclick="unlockContent()">Открыть доступ</button>
+</div>
+<div class="locked-notice">
+<div class="icon">🔒</div>
+<h3>Шаблон доступен после покупки курса</h3>
+<p>Получите доступ ко всем шаблонам, урокам и инструментам</p>
+<a href="index.html" class="btn-buy">Получить доступ за 2 999 ₽</a>
+</div>
+</div>
+<script>
+const OWNER_PASSWORD = "wbowner2026";
+const STORAGE_KEY = "wb_expert_access";
+function checkAccess(){
+var saved = localStorage.getItem(STORAGE_KEY);
+if(saved === "owner"){showFullContent();return true;}
+return false;
+}
+function showFullContent(){
+document.querySelectorAll('.owner-only').forEach(function(el){el.style.display='block';});
+document.querySelectorAll('.locked-notice').forEach(function(el){el.style.display='none';});
+document.querySelectorAll('.preview-notice').forEach(function(el){el.style.display='none';});
+document.querySelectorAll('.owner-unlock').forEach(function(el){el.style.display='none';});
+}
+function unlockContent(){
+var input = document.getElementById('ownerPassword');
+if(input && input.value === OWNER_PASSWORD){
+localStorage.setItem(STORAGE_KEY, "owner");
+showFullContent();
+alert('✅ Доступ открыт! Вы вошли как владелец.');
+}else{
+alert('❌ Неверный пароль');
+}
+}
+document.addEventListener('DOMContentLoaded', function(){checkAccess();});
+</script>
+</body>
+</html>

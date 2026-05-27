@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Урок 01: WB Stars и внутренняя реклама | WB Expert</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+--primary: #7B61FF; --secondary: #00D4AA; --accent: #FF6B6B;
+--bg: #0F0F1A; --surface: #1A1A2E; --surface-light: #252542;
+--text: #FFFFFF; --text-muted: #A0A0B8; --border: rgba(255,255,255,0.08);
+--gradient: linear-gradient(135deg, #7B61FF 0%, #00D4AA 100%);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+.container{max-width:800px;margin:0 auto;padding:40px 20px}
+.back{display:inline-flex;align-items:center;gap:8px;color:var(--primary);text-decoration:none;margin-bottom:30px;font-weight:500}
+.back:hover{color:var(--text)}
+.lesson-header{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:30px;margin-bottom:30px}
+.lesson-num{display:inline-block;background:var(--gradient);color:white;padding:6px 16px;border-radius:100px;font-weight:700;font-size:0.9rem;margin-bottom:15px}
+h1{font-size:1.8rem;font-weight:800;margin-bottom:10px}
+.meta{color:var(--text-muted);font-size:0.9rem;margin-bottom:20px}
+.duration{display:inline-flex;align-items:center;gap:6px;background:rgba(0,212,170,0.1);color:var(--secondary);padding:6px 14px;border-radius:8px;font-size:0.85rem;font-weight:600}
+.content-block{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:25px;margin-bottom:20px}
+.content-block h2{font-size:1.2rem;font-weight:700;margin-bottom:15px;color:var(--primary)}
+.content-block ul{list-style:none}
+.content-block li{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;color:var(--text-muted)}
+.content-block li::before{content:'▶';color:var(--secondary);font-size:0.8rem;margin-top:4px}
+.step-block{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:25px;margin-bottom:16px;display:flex;gap:16px;transition:all 0.3s}
+.step-block:hover{border-color:rgba(123,97,255,0.3);transform:translateX(5px)}
+.step-num{width:40px;height:40px;background:var(--gradient);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;flex-shrink:0}
+.step-content h3{font-size:1.1rem;font-weight:700;margin-bottom:10px;color:var(--text)}
+.step-content p{color:var(--text-muted);font-size:0.95rem;line-height:1.7}
+.step-content p strong{color:var(--text)}
+.locked-notice{background:rgba(255,107,107,0.1);border:1px solid rgba(255,107,107,0.3);border-radius:12px;padding:20px;text-align:center;margin-top:30px}
+.locked-notice .icon{font-size:2rem;margin-bottom:10px}
+.locked-notice h3{font-size:1.1rem;margin-bottom:8px}
+.locked-notice p{color:var(--text-muted);font-size:0.9rem;margin-bottom:15px}
+.btn-buy{display:inline-block;background:var(--gradient);color:white;padding:12px 32px;border-radius:12px;text-decoration:none;font-weight:600;font-size:1rem}
+.btn-buy:hover{transform:translateY(-2px)}
+.owner-unlock{background:rgba(123,97,255,0.1);border:1px solid rgba(123,97,255,0.3);border-radius:12px;padding:20px;text-align:center;margin:30px 0}
+.owner-unlock .icon{font-size:2rem;margin-bottom:10px}
+.owner-unlock h3{font-size:1.1rem;margin-bottom:8px}
+.owner-unlock p{color:var(--text-muted);font-size:0.9rem;margin-bottom:15px}
+.owner-unlock input{background:var(--surface-light);border:1px solid var(--border);color:var(--text);padding:10px 16px;border-radius:8px;font-size:1rem;width:250px;margin-right:10px}
+.owner-unlock button{background:var(--gradient);color:white;padding:10px 24px;border-radius:8px;border:none;font-weight:600;font-size:1rem;cursor:pointer}
+.preview-notice{background:rgba(0,212,170,0.1);border:1px solid rgba(0,212,170,0.3);border-radius:12px;padding:16px;text-align:center;margin-bottom:20px}
+.preview-notice p{color:var(--secondary);font-size:0.9rem;font-weight:600}
+</style>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back">← Назад к курсу</a>
+<div class="lesson-header">
+<div class="lesson-num">УРОК 01</div>
+<h1>WB Stars и внутренняя реклама</h1>
+<div class="meta">Курс: "Продвинутый селлер" • Для новичков</div>
+<div class="duration">⏱ 40 мин • Пошаговая инструкция</div>
+</div>
+<div class="preview-notice"><p>👁 Это бесплатный превью урока. Полный доступ ко всем шагам — после оплаты курса.</p></div>
+<div class="content-block">
+<h2>📋 О чём этот урок:</h2>
+<ul>
+<li>Шаг 1: Алгоритм WB Stars</li>
+<li>Шаг 2: Автоматические рекламные кампании</li>
+<li>Шаг 3: Ручное управление ставками</li>
+<li>Шаг 4: Анализ эффективности рекламы</li>
+<li>Шаг 5: Снижение стоимости клика</li>
+<li>Шаг 6: Бюджетирование рекламы</li>
+</ul>
+</div>
+
+        <div class="step-block owner-only" style="display:none;">
+            <div class="step-num">1</div>
+            <div class="step-content">
+                <h3>Шаг 1: Алгоритм WB Stars</h3>
+                <p>WB Stars — это не просто программа лояльности, а инструмент продвижения.<br><br>Как работает алгоритм:<br>• WB анализирует поведение покупателей (что смотрят, что добавляют в корзину)<br>• Товары с высокой конверсией получают больше показов<br>• Отзывы с фото/видео повышают «вес» карточки в 3 раза<br>• Покупатели с подпиской WB Stars чаще видят рекомендуемые товары<br><br>Как попасть в блок «Рекомендуем»:<br>• Рейтинг 4,7+<br>• Минимум 20 отзывов с фото<br>• Стабильные продажи 30+ шт/неделю<br>• Низкий процент возвратов (< 3%)<br>• Активность: ответы на отзывы, обновление карточки<br><br>💡 Карточки в «Рекомендуем» получают в 5-10 раз больше просмотров.</p>
+            </div>
+        </div>
+        <div class="step-block owner-only" style="display:none;">
+            <div class="step-num">2</div>
+            <div class="step-content">
+                <h3>Шаг 2: Автоматические рекламные кампании</h3>
+                <p>WB предлагает автоматические стратегии:<br><br><strong>«Максимум показов»:</strong><br>• WB сам управляет ставками<br>• Цель: максимальный охват<br>• Подходит для новых товаров<br>• Бюджет: от 1000 ₽/день<br><br><strong>«Максимум заказов»:</strong><br>• WB оптимизирует под конверсию<br>• Цель: больше продаж<br>• Подходит для проверенных карточек<br>• Бюджет: от 2000 ₽/день<br><br><strong>«Фиксированная ставка»:</strong><br>• Вы сами задаёте цену клика<br>• Больше контроля, но требует опыта<br>• Рекомендуемая ставка: 10-30 ₽/клик<br><br>Настройка:<br>1. Выберите товары (минимум 5 для сбора статистики)<br>2. Укажите бюджет и срок<br>3. WB сам подберёт ключевые слова<br>4. Через 3-5 дней анализируйте результаты</p>
+            </div>
+        </div>
+        <div class="step-block owner-only" style="display:none;">
+            <div class="step-num">3</div>
+            <div class="step-content">
+                <h3>Шаг 3: Ручное управление ставками</h3>
+                <p>Когда переходить на ручное управление:<br>• У вас есть статистика минимум за 2 недели<br>• Вы знаете, какие ключевые слова конвертируют<br>• Автокампания дает ROI < 200%<br><br><strong>Как управлять ставками:</strong><br><br>1. <strong>Анализируйте каждое ключевое слово</strong><br>• Зайдите в «Отчёты» → «Поисковые запросы»<br>• Смотрите: клики, показы, заказы, расход<br>• Отключайте слова с CTR < 1%<br><br>2. <strong>Повышайте ставки на «горячие» слова</strong><br>• Если слово даёт заказ каждые 5 кликов — повысьте ставку на 20%<br>• Если слово тратит деньги без заказов — понизьте или отключите<br><br>3. <strong>Используйте ставки по времени</strong><br>• Повышайте вечером (19:00-23:00) — пик покупок<br>• Понижайте ночью (02:00-08:00)<br><br>💡 Правило: не меняйте ставки чаще 1 раза в 3 дня — WB нужно время на обучение.</p>
+            </div>
+        </div>
+        <div class="step-block owner-only" style="display:none;">
+            <div class="step-num">4</div>
+            <div class="step-content">
+                <h3>Шаг 4: Анализ эффективности рекламы</h3>
+                <p>Ключевые метрики:<br><br><strong>CTR (Click-Through Rate):</strong><br>• Формула: (Клики ÷ Показы) × 100%<br>• Норма: 2-5%<br>• Если < 1% — проблема в фото/цене/названии<br><br><strong>CPC (Cost Per Click):</strong><br>• Средняя стоимость клика<br>• Норма: 5-25 ₽<br>• Если > 50 ₽ — ниша слишком конкурентная<br><br><strong>CR (Conversion Rate):</strong><br>• Формула: (Заказы ÷ Клики) × 100%<br>• Норма: 3-8%<br>• Если < 2% — проблема в карточке (описание, отзывы, цена)<br><br><strong>ROI (Return on Investment):</strong><br>• Формула: (Прибыль − Расход на рекламу) ÷ Расход на рекламу × 100%<br>• Минимум: 100% (окупаемость)<br>• Хорошо: 200-400%<br>• Отлично: 500%+<br><br>💡 Считайте ROI каждую неделю. Если падает 2 недели подряд — пересмотрите стратегию.</p>
+            </div>
+        </div>
+        <div class="step-block owner-only" style="display:none;">
+            <div class="step-num">5</div>
+            <div class="step-content">
+                <h3>Шаг 5: Снижение стоимости клика</h3>
+                <p>Как платить меньше за тот же результат:<br><br>1. <strong>Улучшите CTR карточки</strong><br>• Первое фото должно «цеплять» за 1 секунду<br>• Добавьте цену/скидку на фото (если позволяет WB)<br>• Используйте lifestyle-фото (товар в интерьере)<br><br>2. <strong>Работайте с релевантностью</strong><br>• Уберите широкие ключевые слова («подарок», «для дома»)<br>• Добавьте точные («керамическая кружка 350 мл белая»)<br>• Используйте минус-слова (что НЕ подходит)<br><br>3. <strong>Оптимизируйте по времени</strong><br>• Анализируйте, в какие часы лучше конверсия<br>• Повышайте ставки только в «горячие» часы<br><br>4. <strong>Используйте ретаргетинг</strong><br>• Показывайте рекламу тем, кто уже смотрел ваш товар<br>• Конверсия в 3-5 раз выше, чем у новых покупателей<br><br>💡 Снижение CPC на 20% = увеличение прибыли на 20% при том же обороте.</p>
+            </div>
+        </div>
+        <div class="step-block owner-only" style="display:none;">
+            <div class="step-num">6</div>
+            <div class="step-content">
+                <h3>Шаг 6: Бюджетирование рекламы</h3>
+                <p>Сколько тратить на рекламу:<br><br><strong>Формула бюджета:</strong><br>Желаемый оборот × 15-25% = Бюджет на рекламу<br><br>Примеры по этапам:<br><br><strong>Старт (0-100 продаж):</strong><br>• Бюджет: 500-1500 ₽/день<br>• Цель: первые отзывы и проверка конверсии<br>• ROI ожидаемый: 50-100% (может быть в минус — это норма)<br><br><strong>Рост (100-500 продаж):</strong><br>• Бюджет: 2000-5000 ₽/день<br>• Цель: масштабирование продаж<br>• ROI ожидаемый: 150-250%<br><br><strong>Масштаб (500+ продаж):</strong><br>• Бюджет: 5000-20000 ₽/день<br>• Цель: удержание позиций в топе<br>• ROI ожидаемый: 200-400%<br><br>⚠️ Правило: не тратьте на рекламу больше 30% от оборота — иначе работаете на WB, а не на себя.</p>
+            </div>
+        </div>
+<div class="content-block owner-only" style="display:none;">
+<h2>📎 Материалы урока:</h2>
+<ul><li>Шаблон плана рекламного бюджета (Excel)</li><li>Таблица расчёта ROI кампаний</li><li>Инструкция по настройке WB Stars</li><li>Примеры успешных рекламных кампаний</li></ul>
+</div>
+<div class="content-block owner-only" style="display:none;">
+<h2>✅ Результат после урока:</h2>
+<ul><li>Настроена эффективная реклама с положительным ROI</li><li>Понимание, как управлять ставками</li><li>Готовый план рекламного бюджета на месяц</li></ul>
+</div>
+<div class="owner-unlock">
+<div class="icon">🔐</div>
+<h3>Доступ для владельца</h3>
+<p>Введите пароль для просмотра всех уроков</p>
+<input type="password" id="ownerPassword" placeholder="Пароль владельца">
+<button onclick="unlockContent()">Открыть доступ</button>
+</div>
+<div class="locked-notice">
+<div class="icon">🔒</div>
+<h3>Полный урок доступен после оплаты</h3>
+<p>Получите доступ ко всем 8 урокам, шаблонам и инструментам</p>
+<a href="index.html" class="btn-buy">Получить доступ за 2 999 ₽</a>
+</div>
+</div>
+<script>
+const OWNER_PASSWORD = "wbowner2026";
+const STORAGE_KEY = "wb_expert_access";
+function checkAccess(){
+var saved = localStorage.getItem(STORAGE_KEY);
+if(saved === "owner"){showFullContent();return true;}
+return false;
+}
+function showFullContent(){
+document.querySelectorAll('.owner-only').forEach(function(el){el.style.display='flex';});
+document.querySelectorAll('.locked-notice').forEach(function(el){el.style.display='none';});
+document.querySelectorAll('.preview-notice').forEach(function(el){el.style.display='none';});
+document.querySelectorAll('.owner-unlock').forEach(function(el){el.style.display='none';});
+}
+function unlockContent(){
+var input = document.getElementById('ownerPassword');
+if(input && input.value === OWNER_PASSWORD){
+localStorage.setItem(STORAGE_KEY, "owner");
+showFullContent();
+alert('✅ Доступ открыт! Вы вошли как владелец.');
+}else{
+alert('❌ Неверный пароль');
+}
+}
+document.addEventListener('DOMContentLoaded', function(){checkAccess();});
+</script>
+</body>
+</html>

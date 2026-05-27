@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Урок 04: Финансы: комиссии, логистика, налоги | WB Expert</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+--primary: #7B61FF; --secondary: #00D4AA; --accent: #FF6B6B;
+--bg: #0F0F1A; --surface: #1A1A2E; --surface-light: #252542;
+--text: #FFFFFF; --text-muted: #A0A0B8; --border: rgba(255,255,255,0.08);
+--gradient: linear-gradient(135deg, #7B61FF 0%, #00D4AA 100%);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+.container{max-width:800px;margin:0 auto;padding:40px 20px}
+.back{display:inline-flex;align-items:center;gap:8px;color:var(--primary);text-decoration:none;margin-bottom:30px;font-weight:500}
+.back:hover{color:var(--text)}
+.lesson-header{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:30px;margin-bottom:30px}
+.lesson-num{display:inline-block;background:var(--gradient);color:white;padding:6px 16px;border-radius:100px;font-weight:700;font-size:0.9rem;margin-bottom:15px}
+h1{font-size:1.8rem;font-weight:800;margin-bottom:10px}
+.meta{color:var(--text-muted);font-size:0.9rem;margin-bottom:20px}
+.duration{display:inline-flex;align-items:center;gap:6px;background:rgba(0,212,170,0.1);color:var(--secondary);padding:6px 14px;border-radius:8px;font-size:0.85rem;font-weight:600}
+.content-block{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:25px;margin-bottom:20px}
+.content-block h2{font-size:1.2rem;font-weight:700;margin-bottom:15px;color:var(--primary)}
+.content-block ul{list-style:none}
+.content-block li{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;color:var(--text-muted)}
+.content-block li::before{content:'▶';color:var(--secondary);font-size:0.8rem;margin-top:4px}
+.step-block{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:25px;margin-bottom:16px;display:flex;gap:16px;transition:all 0.3s}
+.step-block:hover{border-color:rgba(123,97,255,0.3);transform:translateX(5px)}
+.step-num{width:40px;height:40px;background:var(--gradient);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;flex-shrink:0}
+.step-content h3{font-size:1.1rem;font-weight:700;margin-bottom:10px;color:var(--text)}
+.step-content p{color:var(--text-muted);font-size:0.95rem;line-height:1.7}
+.step-content p strong{color:var(--text)}
+.locked-notice{background:rgba(255,107,107,0.1);border:1px solid rgba(255,107,107,0.3);border-radius:12px;padding:20px;text-align:center;margin-top:30px}
+.locked-notice .icon{font-size:2rem;margin-bottom:10px}
+.locked-notice h3{font-size:1.1rem;margin-bottom:8px}
+.locked-notice p{color:var(--text-muted);font-size:0.9rem;margin-bottom:15px}
+.btn-buy{display:inline-block;background:var(--gradient);color:white;padding:12px 32px;border-radius:12px;text-decoration:none;font-weight:600;font-size:1rem}
+.btn-buy:hover{transform:translateY(-2px)}
+.owner-unlock{background:rgba(123,97,255,0.1);border:1px solid rgba(123,97,255,0.3);border-radius:12px;padding:20px;text-align:center;margin:30px 0}
+.owner-unlock .icon{font-size:2rem;margin-bottom:10px}
+.owner-unlock h3{font-size:1.1rem;margin-bottom:8px}
+.owner-unlock p{color:var(--text-muted);font-size:0.9rem;margin-bottom:15px}
+.owner-unlock input{background:var(--surface-light);border:1px solid var(--border);color:var(--text);padding:10px 16px;border-radius:8px;font-size:1rem;width:250px;margin-right:10px}
+.owner-unlock button{background:var(--gradient);color:white;padding:10px 24px;border-radius:8px;border:none;font-weight:600;font-size:1rem;cursor:pointer}
+.preview-notice{background:rgba(0,212,170,0.1);border:1px solid rgba(0,212,170,0.3);border-radius:12px;padding:16px;text-align:center;margin-bottom:20px}
+.preview-notice p{color:var(--secondary);font-size:0.9rem;font-weight:600}
+</style>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back">← Назад к курсу</a>
+<div class="lesson-header">
+<div class="lesson-num">УРОК 04</div>
+<h1>Финансы: комиссии, логистика, налоги</h1>
+<div class="meta">Курс: "С нуля до первого заказа" • Для новичков</div>
+<div class="duration">⏱ 20 мин • Пошаговая инструкция</div>
+</div>
+<div class="preview-notice"><p>👁 Это бесплатный превью урока. Полный доступ ко всем шагам — после оплаты курса.</p></div>
+<div class="content-block">
+<h2>📋 О чём этот урок:</h2>
+<ul>
+<li>Шаг 1: Все комиссии Wildberries</li>
+<li>Шаг 2: Расчёт точки безубыточности</li>
+<li>Шаг 3: Налоги для разных форматов</li>
+<li>Шаг 4: Когда WB выплачивает деньги</li>
+<li>Шаг 5: Ведение учёта доходов и расходов</li>
+<li>Шаг 6: Как не уйти в минус</li>
+</ul>
+</div>
+
+        <div class="step-block owner-only" style="display:none;">
+            <div class="step-num">1</div>
+            <div class="step-content">
+                <h3>Шаг 1: Все комиссии Wildberries</h3>
+                <p>WB берёт комиссию с каждой продажи. Размер зависит от категории:<br><br>• <strong>Одежда и обувь:</strong> 15-25%<br>• <strong>Электроника:</strong> 5-10%<br>• <strong>Косметика:</strong> 15-20%<br>• <strong>Товары для дома:</strong> 10-15%<br>• <strong>Детские товары:</strong> 10-15%<br>• <strong>Книги:</strong> 15-20%<br><br>Дополнительные сборы:<br>• Логистика до покупателя: от 33 ₽/шт<br>• Хранение на складе FBO: от 1,5 ₽/шт/день (после 30 дней)<br>• Экспедирование (приёмка): от 20 ₽/шт<br>• Упаковка WB: от 10 ₽/шт<br><br>💡 Проверьте точную комиссию в личном кабинете: «Тарифы» → «Комиссии по категориям».</p>
+            </div>
+        </div>
+        <div class="step-block owner-only" style="display:none;">
+            <div class="step-num">2</div>
+            <div class="step-content">
+                <h3>Шаг 2: Расчёт точки безубыточности</h3>
+                <p>Формула:<br><strong>Точка безубыточности = Постоянные расходы ÷ (Цена − Переменные расходы на 1 шт)</strong><br><br>Пример:<br>• Аренда склада: 10 000 ₽/мес<br>• Подписка на аналитику: 2 000 ₽/мес<br>• Цена товара: 800 ₽<br>• Закупка: 200 ₽<br>• Комиссия WB: 80 ₽ (10%)<br>• Логистика: 50 ₽<br><br>Переменные расходы: 200 + 80 + 50 = 330 ₽<br>Прибыль с 1 шт: 800 − 330 = 470 ₽<br>Постоянные расходы: 12 000 ₽<br><br>Точка безубыточности: 12 000 ÷ 470 = <strong>26 шт в месяц</strong><br><br>Это минимум, который нужно продать, чтобы не уйти в минус.</p>
+            </div>
+        </div>
+        <div class="step-block owner-only" style="display:none;">
+            <div class="step-num">3</div>
+            <div class="step-content">
+                <h3>Шаг 3: Налоги для разных форматов</h3>
+                <p><strong>Самозанятый (НПД):</strong><br>• 4% — если платит покупатель (через приложение «Мой налог»)<br>• 6% — если платите вы сами<br>• Не нужна бухгалтерия<br>• Доход до 2,4 млн ₽/год<br><br><strong>ИП (УСН 6%):</strong><br>• 6% от оборота (все деньги, прошедшие через счёт)<br>• Нужна упрощённая отчётность (1 раз в год)<br>• Доход до 265 млн ₽/год<br><br><strong>ИП (УСН 15%):</strong><br>• 15% от прибыли (доход − расходы)<br>• Выгодно при высоких закупочных ценах<br><br><strong>ООО:</strong><br>• УСН 6% или 15% — как у ИП<br>• Или общая система: 20% налог на прибыль + 20% НДС<br>• Полная бухгалтерия (лучше нанять бухгалтера)</p>
+            </div>
+        </div>
+        <div class="step-block owner-only" style="display:none;">
+            <div class="step-num">4</div>
+            <div class="step-content">
+                <h3>Шаг 4: Когда WB выплачивает деньги</h3>
+                <p>График выплат:<br>• <strong>2 раза в месяц:</strong> 1-го и 15-го числа<br>• Выплачиваются продажи, прошедшие проверку (обычно 7-14 дней)<br>• Деньги приходят на указанный расчётный счёт<br><br>Что может задержать выплату:<br>• Возвраты товара<br>• Споры с покупателями<br>• Проверка WB на подозрительную активность<br>• Неправильно указанные банковские реквизиты<br><br>💡 Совет: всегда держите запас денег на закупку новой партии — WB платит с задержкой 1-2 недели.</p>
+            </div>
+        </div>
+        <div class="step-block owner-only" style="display:none;">
+            <div class="step-num">5</div>
+            <div class="step-content">
+                <h3>Шаг 5: Ведение учёта доходов и расходов</h3>
+                <p>Что фиксировать:<br><br><strong>Доходы:</strong><br>• Дата продажи<br>• Артикул товара<br>• Количество<br>• Цена продажи<br>• Комиссия WB<br>• Чистый доход<br><br><strong>Расходы:</strong><br>• Закупка товара<br>• Логистика<br>• Упаковка<br>• Реклама на WB<br>• Налоги<br>• Подписки на сервисы<br><br>Инструменты:<br>• Google Таблицы (бесплатно)<br>• Excel<br>• Специализированные сервисы: Моё дело, Контур.Эльба<br><br>⚠️ Без учёта вы не поймёте, какой товар приносит деньги, а какой — убыточный.</p>
+            </div>
+        </div>
+        <div class="step-block owner-only" style="display:none;">
+            <div class="step-num">6</div>
+            <div class="step-content">
+                <h3>Шаг 6: Как не уйти в минус</h3>
+                <p>Золотые правила:<br><br>1. <strong>Пересчитывайте маржу каждый месяц</strong> — WB меняет комиссии<br>2. <strong>Не закупайте много на старте</strong> — тестируйте партиями по 10-20 шт<br>3. <strong>Следите за возвратами</strong> — если больше 10%, ищите проблему<br>4. <strong>Учитывайте все расходы</strong> — даже скотч и коробки<br>5. <strong>Не снижайте цену ниже точки безубыточности</strong> — ради «топа»<br>6. <strong>Делайте резерв на 2 месяца</strong> — на случай задержек выплат<br><br>Красные флаги (срочно проверьте учёт!):<br>🚩 Продажи есть, а денег на счету нет<br>🚩 Прибыль падает 2 месяца подряд<br>🚩 Возвраты больше 15%</p>
+            </div>
+        </div>
+<div class="content-block owner-only" style="display:none;">
+<h2>📎 Материалы урока:</h2>
+<ul><li>Калькулятор прибыли (Excel) — автоматический расчёт</li><li>Таблица всех комиссий WB по категориям</li><li>Шаблон учёта доходов и расходов</li><li>Инструкция по выводу денег с WB</li></ul>
+</div>
+<div class="content-block owner-only" style="display:none;">
+<h2>✅ Результат после урока:</h2>
+<ul><li>Понимание реальной прибыли после всех вычетов</li><li>Настроенный учёт финансов</li><li>Уверенность, что вы не уйдёте в минус</li></ul>
+</div>
+<div class="owner-unlock">
+<div class="icon">🔐</div>
+<h3>Доступ для владельца</h3>
+<p>Введите пароль для просмотра всех уроков</p>
+<input type="password" id="ownerPassword" placeholder="Пароль владельца">
+<button onclick="unlockContent()">Открыть доступ</button>
+</div>
+<div class="locked-notice">
+<div class="icon">🔒</div>
+<h3>Полный урок доступен после оплаты</h3>
+<p>Получите доступ ко всем 8 урокам, шаблонам и инструментам</p>
+<a href="index.html" class="btn-buy">Получить доступ за 2 999 ₽</a>
+</div>
+</div>
+<script>
+const OWNER_PASSWORD = "wbowner2026";
+const STORAGE_KEY = "wb_expert_access";
+function checkAccess(){
+var saved = localStorage.getItem(STORAGE_KEY);
+if(saved === "owner"){showFullContent();return true;}
+return false;
+}
+function showFullContent(){
+document.querySelectorAll('.owner-only').forEach(function(el){el.style.display='flex';});
+document.querySelectorAll('.locked-notice').forEach(function(el){el.style.display='none';});
+document.querySelectorAll('.preview-notice').forEach(function(el){el.style.display='none';});
+document.querySelectorAll('.owner-unlock').forEach(function(el){el.style.display='none';});
+}
+function unlockContent(){
+var input = document.getElementById('ownerPassword');
+if(input && input.value === OWNER_PASSWORD){
+localStorage.setItem(STORAGE_KEY, "owner");
+showFullContent();
+alert('✅ Доступ открыт! Вы вошли как владелец.');
+}else{
+alert('❌ Неверный пароль');
+}
+}
+document.addEventListener('DOMContentLoaded', function(){checkAccess();});
+</script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Урок 02: Как найти и закупить первый товар | WB Expert</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+--primary: #7B61FF; --secondary: #00D4AA; --accent: #FF6B6B;
+--bg: #0F0F1A; --surface: #1A1A2E; --surface-light: #252542;
+--text: #FFFFFF; --text-muted: #A0A0B8; --border: rgba(255,255,255,0.08);
+--gradient: linear-gradient(135deg, #7B61FF 0%, #00D4AA 100%);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+.container{max-width:800px;margin:0 auto;padding:40px 20px}
+.back{display:inline-flex;align-items:center;gap:8px;color:var(--primary);text-decoration:none;margin-bottom:30px;font-weight:500}
+.back:hover{color:var(--text)}
+.lesson-header{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:30px;margin-bottom:30px}
+.lesson-num{display:inline-block;background:var(--gradient);color:white;padding:6px 16px;border-radius:100px;font-weight:700;font-size:0.9rem;margin-bottom:15px}
+h1{font-size:1.8rem;font-weight:800;margin-bottom:10px}
+.meta{color:var(--text-muted);font-size:0.9rem;margin-bottom:20px}
+.duration{display:inline-flex;align-items:center;gap:6px;background:rgba(0,212,170,0.1);color:var(--secondary);padding:6px 14px;border-radius:8px;font-size:0.85rem;font-weight:600}
+.content-block{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:25px;margin-bottom:20px}
+.content-block h2{font-size:1.2rem;font-weight:700;margin-bottom:15px;color:var(--primary)}
+.content-block ul{list-style:none}
+.content-block li{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;color:var(--text-muted)}
+.content-block li::before{content:'▶';color:var(--secondary);font-size:0.8rem;margin-top:4px}
+.step-block{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:25px;margin-bottom:16px;display:flex;gap:16px;transition:all 0.3s}
+.step-block:hover{border-color:rgba(123,97,255,0.3);transform:translateX(5px)}
+.step-num{width:40px;height:40px;background:var(--gradient);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;flex-shrink:0}
+.step-content h3{font-size:1.1rem;font-weight:700;margin-bottom:10px;color:var(--text)}
+.step-content p{color:var(--text-muted);font-size:0.95rem;line-height:1.7}
+.step-content p strong{color:var(--text)}
+.locked-notice{background:rgba(255,107,107,0.1);border:1px solid rgba(255,107,107,0.3);border-radius:12px;padding:20px;text-align:center;margin-top:30px}
+.locked-notice .icon{font-size:2rem;margin-bottom:10px}
+.locked-notice h3{font-size:1.1rem;margin-bottom:8px}
+.locked-notice p{color:var(--text-muted);font-size:0.9rem;margin-bottom:15px}
+.btn-buy{display:inline-block;background:var(--gradient);color:white;padding:12px 32px;border-radius:12px;text-decoration:none;font-weight:600;font-size:1rem}
+.btn-buy:hover{transform:translateY(-2px)}
+.owner-unlock{background:rgba(123,97,255,0.1);border:1px solid rgba(123,97,255,0.3);border-radius:12px;padding:20px;text-align:center;margin:30px 0}
+.owner-unlock .icon{font-size:2rem;margin-bottom:10px}
+.owner-unlock h3{font-size:1.1rem;margin-bottom:8px}
+.owner-unlock p{color:var(--text-muted);font-size:0.9rem;margin-bottom:15px}
+.owner-unlock input{background:var(--surface-light);border:1px solid var(--border);color:var(--text);padding:10px 16px;border-radius:8px;font-size:1rem;width:250px;margin-right:10px}
+.owner-unlock button{background:var(--gradient);color:white;padding:10px 24px;border-radius:8px;border:none;font-weight:600;font-size:1rem;cursor:pointer}
+.preview-notice{background:rgba(0,212,170,0.1);border:1px solid rgba(0,212,170,0.3);border-radius:12px;padding:16px;text-align:center;margin-bottom:20px}
+.preview-notice p{color:var(--secondary);font-size:0.9rem;font-weight:600}
+</style>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back">← Назад к курсу</a>
+<div class="lesson-header">
+<div class="lesson-num">УРОК 02</div>
+<h1>Как найти и закупить первый товар</h1>
+<div class="meta">Курс: "С нуля до первого заказа" • Для новичков</div>
+<div class="duration">⏱ 25 мин • Пошаговая инструкция</div>
+</div>
+<div class="preview-notice"><p>👁 Это бесплатный превью урока. Полный доступ ко всем шагам — после оплаты курса.</p></div>
+<div class="content-block">
+<h2>📋 О чём этот урок:</h2>
+<ul>
+<li>Шаг 1: Анализ ниши на Wildberries</li>
+<li>Шаг 2: Где искать поставщиков</li>
+<li>Шаг 3: Расчёт маржинальности</li>
+<li>Шаг 4: Переговоры с поставщиком</li>
+<li>Шаг 5: Проверка качества</li>
+<li>Шаг 6: Подготовка к отправке на склад</li>
+</ul>
+</div>
+
+        <div class="step-block owner-only" style="display:none;">
+            <div class="step-num">1</div>
+            <div class="step-content">
+                <h3>Шаг 1: Анализ ниши на Wildberries</h3>
+                <p>Откройте WB и изучите категории:<br>• Зайдите в раздел, который вам интересен<br>• Отсортируйте по «Популярные» и «Новинки»<br>• Посмотрите, какие товары на первых страницах<br>• Обратите внимание на количество отзывов (если 1000+ — ниша конкурентная)<br><br>💡 Идеальная ниша для новичка: 100-500 отзывов у топовых товаров, цена 500-2000 ₽, товар лёгкий и не ломается.</p>
+            </div>
+        </div>
+        <div class="step-block owner-only" style="display:none;">
+            <div class="step-num">2</div>
+            <div class="step-content">
+                <h3>Шаг 2: Где искать поставщиков</h3>
+                <p>Основные источники:<br><br>• <strong>1688.com / Alibaba</strong> — китайские производители, дёшево, но доставка 2-4 недели<br>• <strong>Яндекс.Маркет / Ozon</strong> — найдите товар, посмотрите продавцов, свяжитесь напрямую<br>• <strong>Рынки вашего города</strong> — быстро, можно потрогать товар, торгуйтесь!<br>• <strong>Производители РФ</strong> — качество выше, доставка быстрее, маржа меньше<br><br>Для первого заказа берите минимальную партию — 10-20 штук на тест.</p>
+            </div>
+        </div>
+        <div class="step-block owner-only" style="display:none;">
+            <div class="step-num">3</div>
+            <div class="step-content">
+                <h3>Шаг 3: Расчёт маржинальности</h3>
+                <p>Формула прибыли:<br><strong>Прибыль = Цена продажи − Закупка − Комиссия WB (5-15%) − Логистика − Упаковка − Налог</strong><br><br>Пример:<br>• Закупка: 200 ₽/шт<br>• Цена на WB: 800 ₽<br>• Комиссия WB (10%): 80 ₽<br>• Логистика: 50 ₽<br>• Упаковка: 20 ₽<br>• Налог (6% самозанятый): 48 ₽<br><br>Итого прибыль: 800 − 200 − 80 − 50 − 20 − 48 = <strong>402 ₽ на 1 шт</strong><br><br>Маржа должна быть минимум 30%, иначе не окупитесь.</p>
+            </div>
+        </div>
+        <div class="step-block owner-only" style="display:none;">
+            <div class="step-num">4</div>
+            <div class="step-content">
+                <h3>Шаг 4: Переговоры с поставщиком</h3>
+                <p>Что спросить:<br>• Есть ли скидка при закупке от 50/100/500 шт?<br>• Можно ли заказать образец (1-3 шт) перед оптовой закупкой?<br>• Какая гарантия качества? Что делать с браком?<br>• Сроки производства и доставки?<br>• Есть ли сертификаты (обязательны для детских товаров, косметики, техники)?<br><br>💡 Просите фото реального товара, а не рендеры. Проверьте отзывы о поставщике.</p>
+            </div>
+        </div>
+        <div class="step-block owner-only" style="display:none;">
+            <div class="step-num">5</div>
+            <div class="step-content">
+                <h3>Шаг 5: Проверка качества</h3>
+                <p>Перед отправкой на WB:<br>• Проверьте каждую единицу на брак<br>• Убедитесь, что упаковка целая<br>• Сфотографируйте товар сами (не используйте фото поставщика!)<br>• Проверьте комплектацию<br><br>⚠️ Важно: WB штрафует за брак и несоответствие описанию. Проверка — ваша страховка.</p>
+            </div>
+        </div>
+        <div class="step-block owner-only" style="display:none;">
+            <div class="step-num">6</div>
+            <div class="step-content">
+                <h3>Шаг 6: Подготовка к отправке на склад</h3>
+                <p>Для FBO (склад WB):<br>• Упакуйте товар в коробки по 10-20 шт<br>• Прикрепите этикетки WB (печатаются в личном кабинете)<br>• Доставьте на ближайший пункт приёма WB или вызовите курьера<br><br>Для со своего склада:<br>• Настройте интеграцию с WB API для автоматической передачи заказов<br>• Подготовьте упаковку для каждого заказа<br>• Организуйте доставку до пункта выдачи WB</p>
+            </div>
+        </div>
+<div class="content-block owner-only" style="display:none;">
+<h2>📎 Материалы урока:</h2>
+<ul><li>Шаблон расчёта маржи (Excel)</li><li>Список проверенных поставщиков по нишам</li><li>Чек-лист проверки качества товара</li><li>Шаблон договора с поставщиком</li></ul>
+</div>
+<div class="content-block owner-only" style="display:none;">
+<h2>✅ Результат после урока:</h2>
+<ul><li>Выбран прибыльный товар для первой продажи</li><li>Заключена сделка с поставщиком</li><li>Рассчитана реальная прибыль с учётом всех комиссий</li></ul>
+</div>
+<div class="owner-unlock">
+<div class="icon">🔐</div>
+<h3>Доступ для владельца</h3>
+<p>Введите пароль для просмотра всех уроков</p>
+<input type="password" id="ownerPassword" placeholder="Пароль владельца">
+<button onclick="unlockContent()">Открыть доступ</button>
+</div>
+<div class="locked-notice">
+<div class="icon">🔒</div>
+<h3>Полный урок доступен после оплаты</h3>
+<p>Получите доступ ко всем 8 урокам, шаблонам и инструментам</p>
+<a href="index.html" class="btn-buy">Получить доступ за 2 999 ₽</a>
+</div>
+</div>
+<script>
+const OWNER_PASSWORD = "wbowner2026";
+const STORAGE_KEY = "wb_expert_access";
+function checkAccess(){
+var saved = localStorage.getItem(STORAGE_KEY);
+if(saved === "owner"){showFullContent();return true;}
+return false;
+}
+function showFullContent(){
+document.querySelectorAll('.owner-only').forEach(function(el){el.style.display='flex';});
+document.querySelectorAll('.locked-notice').forEach(function(el){el.style.display='none';});
+document.querySelectorAll('.preview-notice').forEach(function(el){el.style.display='none';});
+document.querySelectorAll('.owner-unlock').forEach(function(el){el.style.display='none';});
+}
+function unlockContent(){
+var input = document.getElementById('ownerPassword');
+if(input && input.value === OWNER_PASSWORD){
+localStorage.setItem(STORAGE_KEY, "owner");
+showFullContent();
+alert('✅ Доступ открыт! Вы вошли как владелец.');
+}else{
+alert('❌ Неверный пароль');
+}
+}
+document.addEventListener('DOMContentLoaded', function(){checkAccess();});
+</script>
+</body>
+</html>
